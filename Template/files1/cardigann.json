@@ -1,0 +1,47 @@
+{
+  "type": 1,
+  "title": "Cardigann",
+  "name": "Cardigann",
+  "description": "### THIS IMAGE IS DEPRECATED ### Cardigann a server for adding extra indexers to Sonarr, SickRage and CouchPotato via Torznab and TorrentPotato proxies. Behind the scenes Cardigann logs in and runs searches and then transforms the results into a compatible format.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/cardigann.png",
+  "image": "linuxserver/cardigann:latest",
+  "ports": [
+    "5060/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "SOCKS_PROXY",
+      "description": "For using a socks proxy (optional)",
+      "default": "1000",
+      "label": "SOCKS_PROXY"
+    },
+    {
+      "name": "HTTP_PROXY",
+      "description": "For using a HTTP proxy (optional)",
+      "default": "1000",
+      "label": "HTTP_PROXY"
+    }
+  ],
+  "categories": [
+    "Downloaders",
+    "Deprecated"
+  ]
+}

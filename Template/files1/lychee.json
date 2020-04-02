@@ -1,0 +1,43 @@
+{
+  "type": 1,
+  "title": "Lychee",
+  "name": "Lychee",
+  "description": "Lychee is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/lychee-icon.png",
+  "image": "linuxserver/lychee:latest",
+  "ports": [
+    "80/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/pictures"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Cloud",
+    "Web",
+    "Management",
+    "Photos"
+  ]
+}

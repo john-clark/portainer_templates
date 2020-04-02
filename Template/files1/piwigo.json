@@ -1,0 +1,32 @@
+{
+  "type": 1,
+  "title": "Piwigo",
+  "name": "Piwigo",
+  "description": "Piwigo is photo gallery software for the web, built by an active community of users and developers.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/piwigo-icon.png",
+  "image": "linuxserver/piwigo:latest",
+  "ports": [
+    "80/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    }
+  ],
+  "categories": [
+    "Photos"
+  ]
+}

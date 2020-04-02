@@ -1,0 +1,41 @@
+{
+  "type": 1,
+  "title": "Kodi-headless",
+  "name": "Kodi-headless",
+  "description": "A headless install of kodi in a docker container, most useful for a mysql setup of kodi to allow library updates to be sent without the need for a player system to be permanently on. The default user/password for the web interface is kodi/kodi.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/kodi-banner.png",
+  "image": "linuxserver/kodi-headless:latest",
+  "ports": [
+    "8080/tcp",
+    "9090/tcp",
+    "9777/udp"
+  ],
+  "volumes": [
+    {
+      "container": "/config/.kodi"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1001",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1001",
+      "label": "PGID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Video"
+  ]
+}

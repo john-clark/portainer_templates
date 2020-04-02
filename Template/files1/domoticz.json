@@ -1,0 +1,46 @@
+{
+  "type": 1,
+  "title": "Domoticz",
+  "name": "Domoticz",
+  "description": "Domoticz is a Home Automation System that lets you monitor and configure various devices like: Lights, Switches, various sensors/meters like Temperature, Rain, Wind, UV, Electra, Gas, Water and much more. Notifications/Alerts can be sent to any mobile device",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/domoticz.png",
+  "image": "linuxserver/domoticz:latest",
+  "ports": [
+    "1443/tcp",
+    "6144/tcp",
+    "8080/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    },
+    {
+      "name": "WEBROOT",
+      "description": "Sets webroot to domoticz for usage with subfolder reverse proxy. Not needed unless reverse proxying. (optional)",
+      "label": "WEBROOT"
+    }
+  ],
+  "categories": [
+    "Automation:"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "type": 1,
+  "title": "Heimdall",
+  "name": "Heimdall",
+  "description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way. Simplicity is the key to Heimdall. Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo..",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/heimdall-icon.png",
+  "image": "linuxserver/heimdall:latest",
+  "ports": [
+    "80/tcp",
+    "443/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Tools",
+    "Web",
+    "Other"
+  ]
+}

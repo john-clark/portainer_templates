@@ -1,0 +1,35 @@
+{
+  "type": 1,
+  "title": "Muximux",
+  "name": "Muximux",
+  "description": "A lightweight portal to view, manage your HTPC apps without having to run anything more than a PHP enabled webserver. With Muximux you don't need to keep multiple tabs open, or bookmark the URL to all of your apps.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/muximux-icon.png",
+  "image": "linuxserver/muximux:latest",
+  "ports": [
+    "80/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    }
+  ],
+  "categories": [
+    "Web",
+    "Proxy",
+    "Other",
+    "Tools"
+  ]
+}

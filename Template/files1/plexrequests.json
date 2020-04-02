@@ -1,0 +1,39 @@
+{
+  "type": 1,
+  "title": "Plexrequests",
+  "name": "Plexrequests",
+  "description": "Simple automated way for users to request new content for Plex.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/plexrequests-icon.png",
+  "image": "linuxserver/plexrequests:latest",
+  "ports": [
+    "3000/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    },
+    {
+      "name": "URL_BASE",
+      "label": "URL_BASE"
+    }
+  ],
+  "categories": [
+    "Downloaders",
+    "Other",
+    "Video",
+    "Tools"
+  ]
+}

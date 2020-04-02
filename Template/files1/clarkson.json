@@ -1,0 +1,63 @@
+{
+  "type": 1,
+  "title": "Clarkson",
+  "name": "Clarkson",
+  "description": "Clarkson is a web-based dashboard application that gives you a neat and clean interface for logging your fuel fill-ups for all of your vehicles. The application has full multi-user support, as well as multiple vehicles per user. Whenever you fill-up your car or motorcycle, keep the receipt and record the data in Clarkson.",
+  "note": "Clarkson requires v5.7.* of MySQL and please ensure MySQL is running before starting this container.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/clarkson.png",
+  "image": "linuxserver/clarkson:latest",
+  "ports": [
+    "3000/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "MYSQL_HOST",
+      "description": "Points the backend to the MySQL database. This can be either a docker hostname or an IP.",
+      "label": "MYSQL_HOST"
+    },
+    {
+      "name": "MYSQL_USERNAME",
+      "description": "The user with access to the clarkson schema.",
+      "label": "MYSQL_USERNAME"
+    },
+    {
+      "name": "MYSQL_PASSWORD",
+      "description": "The password for the user.",
+      "label": "MYSQL_PASSWORD"
+    },
+    {
+      "name": "ENABLE_REGISTRATIONS",
+      "description": "Defaults to false. If set to true, allows new users to register.",
+      "default": "false",
+      "label": "ENABLE_REGISTRATIONS"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Dashboard ",
+    "Tools",
+    "Other"
+  ]
+}

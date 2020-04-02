@@ -1,0 +1,54 @@
+{
+  "type": 1,
+  "title": "Airsonic",
+  "name": "Airsonic",
+  "description": "Airsonic is a free, web-based media streamer, providing ubiqutious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/airsonic-logo.png",
+  "image": "linuxserver/airsonic:latest",
+  "ports": [
+    "4040/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/music"
+    },
+    {
+      "container": "/playlists"
+    },
+    {
+      "container": "/podcasts"
+    },
+    {
+      "container": "/media"
+    },
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    },
+    {
+      "name": "CONTEXT_PATH",
+      "label": "CONTEXT_PATH",
+      "set": "airsonic"
+    },
+    {
+      "name": "JAVA_OPTS",
+      "label": "JAVA_OPTS",
+      "set": "-Xms256m -Xmx512m"
+    }
+  ],
+  "categories": [
+    "Music"
+  ]
+}

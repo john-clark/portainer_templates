@@ -1,1047 +1,4933 @@
-[  
-  {  
+[
+  {
     "type": 1,
-    "title": "htpcmanager",
-    "description": "Htpcmanager, a front end for many htpc related applications. Hellowlol version.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/htpcmanager-icon.png",
-    "image": "linuxserver/htpcmanager:latest",
-    "category": ["Video", "Music", "Other"],
+    "title": "Airsonic",
+    "name": "Airsonic",
+    "description": "Airsonic is a free, web-based media streamer, providing ubiqutious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.",
     "platform": "linux",
-    "ports": [  
-      "8085/tcp"
-    ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "jackett",
-    "description": "Jackett works as a proxy server it translates queries from apps like Sonarr etc into tracker-site-specific http queries and parses the html response sending results back to the requesting software.[",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/jacket-icon.png",
-    "image": "linuxserver/jackett:latest",
-    "category": ["Downloaders", "Tools"],
-    "platform": "linux",
-    "ports": [  
-      "9117/tcp"
-    ],
-    "volumes": [
-      {"container": "/config"},
-      {"container": "/downloads"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "booksonic",
-    "description": "Booksonic is a server and an app for streaming your audiobooks to any pc or android phone. Most of the functionality is also availiable on other platforms that have apps for subsonic",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/booksonic.png",
-    "image": "linuxserver/booksonic:latest",
-    "category": ["Books", "Other"],
-    "platform": "linux",
-    "ports": [  
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/airsonic-logo.png",
+    "image": "linuxserver/airsonic:latest",
+    "ports": [
       "4040/tcp"
     ],
-    "volumes": [  
-      {"container": "/books"},
-      {"container": "/podcast"},
-      {"container": "/config"}
+    "volumes": [
+      {
+        "container": "/music"
+      },
+      {
+        "container": "/playlists"
+      },
+      {
+        "container": "/podcasts"
+      },
+      {
+        "container": "/media"
+      },
+      {
+        "container": "/config"
+      }
     ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
       },
-      {  
-        "name":"CONTEXT_PATH",
-        "label":"CONTEXT_PATH",
-        "set":"booksonic"
+      {
+        "name": "CONTEXT_PATH",
+        "label": "CONTEXT_PATH",
+        "set": "airsonic"
+      },
+      {
+        "name": "JAVA_OPTS",
+        "label": "JAVA_OPTS",
+        "set": "-Xms256m -Xmx512m"
+      }
+    ],
+    "categories": [
+      "Music"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Bazarr",
+    "name": "Bazarr",
+    "description": "Bazarr is a companion application to Sonarr and Radarr. It can manage and download subtitles based on your requirements. You define your preferences by TV show or movie and Bazarr takes care of everything for you.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/bazarr.png",
+    "image": "linuxserver/bazarr:latest",
+    "ports": [
+      "6767/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/tv"
+      },
+      {
+        "container": "/movies"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      },
+      {
+        "name": "UMASK_SET",
+        "description": "Control permissions of files and directories created by Bazarr",
+        "default": "022",
+        "label": "UMASK_SET"
+      }
+    ],
+    "categories": [
+      "Movie",
+      "Video",
+      "TV"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Beets",
+    "name": "Beets",
+    "description": "Beets is a music library manager and not, for the most part, a music player. It does include a simple player plugin and an experimental Web-based player, but it generally leaves actual sound-reproduction to specialized tools.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/beets-icon.png",
+    "image": "linuxserver/beets:latest",
+    "ports": [
+      "8337/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      },
+      {
+        "container": "/music"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Music"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Booksonic",
+    "name": "Booksonic",
+    "description": "Booksonic is a server and an app for streaming your audiobooks to any pc or android phone. Most of the functionality is also availiable on other platforms that have apps for subsonic",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/booksonic.png",
+    "image": "linuxserver/booksonic:latest",
+    "ports": [
+      "4040/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/audiobooks"
+      },
+      {
+        "container": "/othermedia"
+      },
+      {
+        "container": "/podcasts"
+      },
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID",
+        "default": "1000"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID",
+        "default": "1000"
+      },
+      {
+        "name": "CONTEXT_PATH",
+        "label": "CONTEXT_PATH",
+        "description": "Base url for use with reverse proxies etc.",
+        "set": "booksonic"
+      }
+    ],
+    "categories": [
+      "Books",
+      "Other"
+    ]
+  },
+  {
+    "type": 3,
+    "title": "Bookstack",
+    "name": "Bookstack",
+    "description": "Bookstack is a free and open source Wiki designed for creating beautiful documentation. Feautring a simple, but powerful WYSIWYG editor it allows for teams to create detailed and useful documentation with ease.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/bookstack-logo.png",
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID",
+        "default": "1000"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID",
+        "default": "1000"
+      },
+      {
+        "name": "DB_HOST",
+        "label": "DB_HOST",
+        "description": "Specify the database host"
+      },
+      {
+        "name": "DB_USER",
+        "label": "DB_USER",
+        "description": "Specify the database user"
+      },
+      {
+        "name": "DB_PASS",
+        "label": "DB_PASS",
+        "description": "Specify the database password"
+      },
+      {
+        "name": "DB_DATABASE",
+        "label": "DB_DATABASE",
+        "description": "Specify the database to be used"
+      },
+      {
+        "name": "APP_URL",
+        "label": "APP_URL",
+        "description": "Specify the url your application will be accessed on (required for correct operation of reverse proxy) (optional)"
+      },
+      {
+        "name": "MYSQL_DATABASE",
+        "description": "Specify the name of a database to be created on image startup.",
+        "label": "MYSQL_DATABASE"
+      },
+      {
+        "name": "MYSQL_USER",
+        "description": "This user will have superuser access to the database specified by MYSQL_DATABASE.",
+        "label": "MYSQL_USER"
+      },
+      {
+        "name": "MYSQL_ROOT_PASSWORD",
+        "description": "Set the root password of MYSQL",
+        "label": "MYSQL_ROOT_PASSWORD"
+      },
+      {
+        "name": "MYSQL_PASSWORD",
+        "description": "Set this to the password you want to use for your MYSQL_USER (minimum 4 characters).",
+        "label": "MYSQL_PASSWORD"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Books",
+      "Other"
+    ],
+    "repository": {
+      "stackfile": "stacks/bookstack/docker-compose.yaml",
+      "url": "https://github.com/frdmir/portainer_templates"
+    }
+  },
+  {
+    "type": 1,
+    "title": "Caddy",
+    "name": "Caddy",
+    "description": "HTTP/2 web server with automatic HTTPS",
+    "categories": [
+      "Web-Server"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/caddy.png",
+    "image": "abiosoft/caddy:latest",
+    "ports": [
+      "80/tcp",
+      "443/tcp",
+      "2015/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/root/.caddy"
       }
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "smokeping",
-    "description": null,
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/smokeping-icon.png",
-    "image": "linuxserver/smokeping:latest",
-    "category": ["Management"],
+    "title": "Calibre-web",
+    "name": "Calibre-web",
+    "description": "Calibre Web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.",
     "platform": "linux",
-    "ports": [  
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/calibre-web-icon.png",
+    "image": "linuxserver/calibre-web:latest",
+    "ports": [
+      "8083/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/books"
+      },
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID",
+        "default": "1000"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID",
+        "default": "1000"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Cloud",
+      "Books"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "calibre",
+    "description": "Calibre is a powerful and easy to use e-book manager. Users say it’s outstanding and a must-have. It’ll allow you to do nearly everything and it takes things a step beyond normal e-book software. It’s also completely free and open source and great for both casual users and computer experts.",
+    "logo": "https://manual.calibre-ebook.com/_static/logo.png",
+    "image": "linuxserver/calibre:latest",
+    "category": [
+      "Cloud",
+      "Books"
+    ],
+    "platform": "linux",
+    "ports": [
+      "8080/tcp",
+      "8081/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID",
+        "set": ""
+      },
+      {
+        "name": "PGID",
+        "label": "PGID",
+        "set": ""
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Cardigann",
+    "name": "Cardigann",
+    "description": "### THIS IMAGE IS DEPRECATED ### Cardigann a server for adding extra indexers to Sonarr, SickRage and CouchPotato via Torznab and TorrentPotato proxies. Behind the scenes Cardigann logs in and runs searches and then transforms the results into a compatible format.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/cardigann.png",
+    "image": "linuxserver/cardigann:latest",
+    "ports": [
+      "5060/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "SOCKS_PROXY",
+        "description": "For using a socks proxy (optional)",
+        "default": "1000",
+        "label": "SOCKS_PROXY"
+      },
+      {
+        "name": "HTTP_PROXY",
+        "description": "For using a HTTP proxy (optional)",
+        "default": "1000",
+        "label": "HTTP_PROXY"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Deprecated"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Chevereto",
+    "name": "Chevereto",
+    "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/Chevereto.png",
+    "image": "nmtan/chevereto:latest",
+    "ports": [
       "80/tcp"
     ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/data"}
+    "volumes": [
+      {
+        "container": "/var/www/html/images"
+      }
     ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "CHEVERETO_DB_HOST",
+        "label": "CHEVERETO_DB_HOST"
+      },
+      {
+        "name": "CHEVERETO_DB_USERNAME",
+        "label": "CHEVERETO_DB_USERNAME"
+      },
+      {
+        "name": "CHEVERETO_DB_PASSWORD",
+        "label": "CHEVERETO_DB_PASSWORD"
+      },
+      {
+        "name": "CHEVERETO_DB_NAME",
+        "label": "CHEVERETO_DB_NAME"
+      },
+      {
+        "name": "CHEVERETO_DB_PREFIX",
+        "label": "CHEVERETO_DB_PREFIX"
       }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "duckdns",
-    "description": "Duck DNS is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.\r\n\r\nFirst, go to duckdns site, register your subdomain and retrieve your token\r\nThen run the docker create command above with your subdomain(s) and token\r\nIt will update your IP with the DuckDNS service every 5 minutes\r\n\r\n",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/duckdns.png",
-    "image": "linuxserver/duckdns:latest",
-    "category": ["DNS", "Tools"],
-    "platform": "linux",
-    "env": [  
-      {  
-        "name":"SUBDOMAINS",
-        "label":"SUBDOMAINS",
-        "set":""
-      },
-      {  
-        "name":"TOKEN",
-        "label":"TOKEN",
-        "set":""
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "webgrabplus",
-    "description": "WebGrab+Plus is a multi-site incremental xmltv epg grabber. It collects tv-program guide data from selected tvguide sites for your favourite channels.[br]\r\n\t\tOptional postprocessors to add IMDb data or to customize your xmltv listing.[br]\r\n\t\thttp://www.webgrabplus.com/[br]\r\n\t\t[b][span style='color: #E80000;']Directions:[/span][/b][br]\r\n\t\t[b]/config[/b] : This is where WebGrab+Plus will store it's configuration.[br][br]\r\n\t\t[b]/data[/b] : This is where tv_grab_wg script in the Tvheadend container looks for the guide.xml file.[br][br]",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/webgrabplus.png",
-    "image": "linuxserver/webgrabplus:latest",
-    "category": ["Downloaders"],
-    "platform": "linux",
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/data"}
     ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "categories": [
+      "Other",
+      "Tools",
+      "Photo"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Clarkson",
+    "name": "Clarkson",
+    "description": "Clarkson is a web-based dashboard application that gives you a neat and clean interface for logging your fuel fill-ups for all of your vehicles. The application has full multi-user support, as well as multiple vehicles per user. Whenever you fill-up your car or motorcycle, keep the receipt and record the data in Clarkson.",
+    "note": "Clarkson requires v5.7.* of MySQL and please ensure MySQL is running before starting this container.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/clarkson.png",
+    "image": "linuxserver/clarkson:latest",
+    "ports": [
+      "3000/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "MYSQL_HOST",
+        "description": "Points the backend to the MySQL database. This can be either a docker hostname or an IP.",
+        "label": "MYSQL_HOST"
+      },
+      {
+        "name": "MYSQL_USERNAME",
+        "description": "The user with access to the clarkson schema.",
+        "label": "MYSQL_USERNAME"
+      },
+      {
+        "name": "MYSQL_PASSWORD",
+        "description": "The password for the user.",
+        "label": "MYSQL_PASSWORD"
+      },
+      {
+        "name": "ENABLE_REGISTRATIONS",
+        "description": "Defaults to false. If set to true, allows new users to register.",
+        "default": "false",
+        "label": "ENABLE_REGISTRATIONS"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Dashboard ",
+      "Tools",
+      "Other"
+    ]
+  },
+  {
+    "type": 2,
+    "title": "Cockroachdb",
+    "name": "Cockroachdb",
+    "description": "CockroachDB cluster",
+    "note": "Deploys an insecure CockroachDB cluster, please refer to <a href=\"https://www.cockroachlabs.com/docs/stable/orchestrate-cockroachdb-with-docker-swarm.html\" target=\"_blank\">CockroachDB documentation</a> for production deployments.",
+    "categories": [
+      "Database"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cockroachdb.png",
+    "repository": {
+      "stackfile": "stacks/cockroachdb/docker-stack.yml",
+      "url": "https://github.com/portainer/templates"
+    }
+  },
+  {
+    "type": 1,
+    "title": "Code-server",
+    "name": "Code-server",
+    "description": "Code-server is VS Code running on a remote server, accessible through the browser.",
+    "note": "Code on your Chromebook, tablet, and laptop with a consistent dev environment. If you have a Windows or Mac workstation, more easily develop for Linux. Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. Preserve battery life when you're on the go. All intensive computation runs on your server. You're no longer running excess instances of Chrome.",
+    "categories": [
+      "Tools",
+      "Other"
+    ],
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/code-server.png",
+    "image": "linuxserver/code-server:latest",
+    "ports": [
+      "8443/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      },
+      {
+        "name": "PASSWORD",
+        "description": "Web gui password, if not provided, there will be no auth. (optional)",
+        "label": "PASSWORD"
+      },
+      {
+        "name": "SUDO_PASSWORD",
+        "description": "If this variable is set, user will have sudo access in the code-server terminal with the specified password. (optional)",
+        "label": "SUDO_PASSWORD"
       }
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "domoticz",
+    "title": "Codiad",
+    "name": "Codiad",
+    "description": "### THIS IMAGE IS DEPRECATED. PLEASE MIGRATE TO CLOUD9 IF POSSIBLE ### Codiad is a web-based IDE framework with a small footprint and minimal requirements. We have added a few plugins. More can be added in the marketplace in the WebUI.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/codiad-icon.png",
+    "image": "linuxserver/codiad:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "label": "Specify a timezone to use EG Europe/London"
+      }
+    ],
+    "categories": [
+      "Productivity",
+      "Deprecated"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Commandbox",
+    "name": "Commandbox",
+    "description": "ColdFusion (CFML) CLI",
+    "categories": [
+      "Development"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ortussolutions-commandbox.png",
+    "image": "ortussolutions/commandbox:latest",
+    "ports": [
+      "8080/tcp",
+      "8443/tcp"
+    ],
+    "env": [
+      {
+        "name": "CFENGINE",
+        "set": "lucee@4.5"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Contentbox",
+    "name": "Contentbox",
+    "description": "Open-source modular CMS",
+    "categories": [
+      "CMS"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ortussolutions-contentbox.png",
+    "image": "ortussolutions/contentbox:latest",
+    "ports": [
+      "8080/tcp",
+      "8443/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/data/contentbox/db"
+      },
+      {
+        "container": "/app/includes/shared/media"
+      }
+    ],
+    "env": [
+      {
+        "name": "express",
+        "set": "true"
+      },
+      {
+        "name": "install",
+        "set": "true"
+      },
+      {
+        "name": "CFENGINE",
+        "set": "lucee@4.5"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Cops",
+    "name": "Cops",
+    "description": "COPS links to your Calibre library database and allows downloading and emailing of books directly from a web browser and provides a OPDS feed to connect to your devices.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/cops-icon.png",
+    "image": "linuxserver/cops:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/books"
+      },
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      }
+    ],
+    "categories": [
+      "Cloud",
+      "Books"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Couchpotato",
+    "name": "Couchpotato",
+    "description": "Couchpotato is an automatic NZB and torrent downloader. You can keep a movies I want list and it will search for NZBs/torrents of these movies every X hours. Once a movie is found, it will send it to SABnzbd or download the torrent to a specified directory.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/couchpotato-icon.png",
+    "image": "linuxserver/couchpotato:latest",
+    "ports": [
+      "5050/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      },
+      {
+        "container": "/movies"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "UMASK_SET",
+        "description": "UMASK setting of Couchpotato, optional , default if left unset is 022",
+        "default": "022",
+        "label": "UMASK_SET"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Video"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Cratedb",
+    "name": "Cratedb",
+    "description": "An open-source distributed SQL database",
+    "categories": [
+      "Database"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cratedb.png",
+    "image": "crate:latest",
+    "ports": [
+      "4200/tcp",
+      "4300/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/data"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Daapd",
+    "name": "Daapd",
+    "description": "Daapd (iTunes) media server with support for AirPlay devices, Apple Remote (and compatibles), Chromecast, MPD and internet radio.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/daapd-icon.png",
+    "image": "linuxserver/daapd:latest",
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/music"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use EG Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Music"
+    ]
+  },
+  {
+    "type": 2,
+    "title": "Datadog agent",
+    "name": "Datadog agent",
+    "description": "Collect events and metrics",
+    "categories": [
+      "Monitoring"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/datadog_agent.png",
+    "env": [
+      {
+        "name": "API_KEY",
+        "label": "Datadog API key"
+      }
+    ],
+    "repository": {
+      "stackfile": "stacks/datadog-agent/docker-stack.yml",
+      "url": "https://github.com/portainer/templates"
+    }
+  },
+  {
+    "type": 1,
+    "title": "Davos",
+    "name": "Davos",
+    "description": "davos is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/davos.png",
+    "image": "linuxserver/davos:latest",
+    "ports": [
+      "8080/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/download"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "FTP",
+      "Other",
+      "Tools"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Ddclient",
+    "name": "Ddclient",
+    "description": "Ddclient is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider. It was originally written by Paul Burry and is now mostly by wimpunk. It has the capability to update more than just dyndns and it can fetch your WAN-ipaddress in a few different ways.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/ddclient-logo.png",
+    "image": "linuxserver/ddclient:latest",
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Network"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "deluge-135",
+    "description": "Older Version of deluge",
+    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/deluge-icon.png",
+    "image": "linuxserver/deluge:5b398f77-ls22",
+    "category": [
+      "Downloaders"
+    ],
+    "platform": "linux",
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID",
+        "set": ""
+      },
+      {
+        "name": "PGID",
+        "label": "PGID",
+        "set": ""
+      },
+      {
+        "name": "UMASK_SET",
+        "label": "UMASK_SET",
+        "set": "000"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Deluge",
+    "name": "Deluge",
+    "description": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client providing: Full Encryption, WebUI, Plugin System, Much more...",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/deluge-icon.png",
+    "image": "linuxserver/deluge:latest",
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "UMASK_SET",
+        "description": "For umask setting of deluge, default if left unset is 022 (opcional)",
+        "label": "UMASK_SET"
+      },
+      {
+        "name": "DELUGE_LOGLEVEL",
+        "description": "Set the loglevel output when running Deluge, default is info for deluged and warning for delgued-web (opcional)",
+        "label": "DELUGE_LOGLEVEL"
+      }
+    ],
+    "categories": [
+      "Downloaders"
+    ]
+  },
+  {
+    "type": 2,
+    "title": "Diskover",
+    "name": "Diskover",
+    "description": "Diskover is a file system crawler and disk space usage software that uses Elasticsearch to index and manage data across heterogeneous storage systems.",
+    "categories": [
+      "Cloud",
+      "File-System",
+      "Other"
+    ],
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/diskover.png",
+    "ports": [
+      "80/tcp",
+      "9181/tcp",
+      "9999/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/data"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      },
+      {
+        "name": "REDIS_HOST",
+        "description": "Redis host (optional",
+        "label": "REDIS_HOST"
+      },
+      {
+        "name": "REDIS_PORT",
+        "description": "Redis port (optional",
+        "label": "REDIS_PORT"
+      },
+      {
+        "name": "ES_HOST",
+        "description": "ElasticSearch host (optional)",
+        "label": "ES_HOST"
+      },
+      {
+        "name": "ES_PORT",
+        "description": "ElasticSearch port (optional)",
+        "label": "ES_PORT"
+      },
+      {
+        "name": "ES_USER",
+        "description": "ElasticSearch username (optional)",
+        "label": "ES_USER"
+      },
+      {
+        "name": "ES_PASS",
+        "description": "ElasticSearch password (optional)",
+        "label": "ES_PASS"
+      },
+      {
+        "name": "INDEX_NAME",
+        "description": "Index name prefix (optional)",
+        "label": "INDEX_NAME"
+      },
+      {
+        "name": "DISKOVER_OPTS",
+        "description": "Optional arguments to pass to the diskover crawler (optional)",
+        "label": "DISKOVER_OPTS"
+      },
+      {
+        "name": "WORKER_OPTS",
+        "description": "Optional argumens to pass to the diskover bots launcher (optional)",
+        "label": "WORKER_OPTS"
+      },
+      {
+        "name": "RUN_ON_START",
+        "description": "Initiate a crawl every time the container is started (optional)",
+        "label": "RUN_ON_START"
+      },
+      {
+        "name": "USE_CRON",
+        "description": "Run a crawl on as a cron job (optional)",
+        "default": "true",
+        "label": "USE_CRON"
+      }
+    ],
+    "repository": {
+      "stackfile": "stacks/diskover/docker-stack.yml",
+      "url": "https://github.com/frdmir/portainer_templates"
+    }
+  },
+  {
+    "type": 1,
+    "title": "Domoticz",
+    "name": "Domoticz",
     "description": "Domoticz is a Home Automation System that lets you monitor and configure various devices like: Lights, Switches, various sensors/meters like Temperature, Rain, Wind, UV, Electra, Gas, Water and much more. Notifications/Alerts can be sent to any mobile device",
-    "logo": "https://github.com/domoticz/domoticz/raw/master/www/images/logo.png",
-    "image": "linuxserver/domoticz:latest",
-    "category": ["HomeAutomation:", "Management"],
     "platform": "linux",
-    "ports": [  
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/domoticz.png",
+    "image": "linuxserver/domoticz:latest",
+    "ports": [
       "1443/tcp",
       "6144/tcp",
       "8080/tcp"
     ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
       }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      },
+      {
+        "name": "WEBROOT",
+        "description": "Sets webroot to domoticz for usage with subfolder reverse proxy. Not needed unless reverse proxying. (optional)",
+        "label": "WEBROOT"
+      }
+    ],
+    "categories": [
+      "Automation:"
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "transmission",
-    "description": "Transmission is designed for easy, powerful use. Transmission has the features you want from a BitTorrent client: encryption, a web interface, peer exchange, magnet links, DHT, \u00b5TP, UPnP and NAT-PMP port forwarding, webseed support, watch directories, tracker editing, global and per-torrent speed limits, and more.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/transmission-icon.png",
-    "image": "linuxserver/transmission:latest",
-    "category": ["Downloaders"],
+    "title": "Drupal",
+    "name": "Drupal",
+    "description": "Open-source content management framework",
+    "categories": [
+      "CMS"
+    ],
     "platform": "linux",
-    "ports": [  
-      "9091/tcp",
-      "51413/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"},
-      {"container": "/watch"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "libresonic",
-    "description": "Libresonic is a free, web-based media streamer, providing ubiqutious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.\r\n\r\n/music - Location of music.\r\n/media - Location of other media.\r\n/podcasts - Location of podcasts.\r\n/playlists - Location for playlists storage.\r\nCONTEXT_PATH for setting url-base in reverse proxy setups - (optional)\r\n\r\nDefault user/pass is admin/admin",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/libresonic.png",
-    "image": "linuxserver/libresonic:latest",
-    "category": ["Music"],
-    "platform": "linux",
-    "ports": [  
-      "4040/tcp"
-    ],
-    "volumes": [  
-      {"container": "/music"},
-      {"container": "/playlists"},
-      {"container": "/podcasts"},
-      {"container": "/media"},
-      {"container": "/config"}
-    ],
-    "env": [  
-      {  
-        "name":"CONTEXT_PATH",
-        "label":"CONTEXT_PATH",
-        "set":""
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "sickrage",
-    "description": "Automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/sickrage-icon.png",
-    "image": "linuxserver/sickrage:latest",
-    "category": ["Downloaders","Video"],
-    "platform": "linux",
-    "ports": [  
-      "8081/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"},
-      {"container": "/tv"}
-    ],
-    "env": [  
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "musicbrainz",
-    "description": " MusicBrainz is an open music encyclopedia that collects music metadata and makes it available to the public.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/musicbrainz-icon.png",
-    "image": "linuxserver/musicbrainz:latest",
-    "category": ["Music", "Other", "Tools"],
-    "platform": "linux",
-    "ports": [  
-      "5000/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/data"}
-    ],
-    "env": [  
-      {  
-        "name":"BRAINZCODE",
-        "label":"BRAINZCODE",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "quassel-core",
-    "description": "Quassel IRC is a modern, cross-platform, distributed IRC client, meaning that one (or multiple) client(s) can attach to and detach from a central core -- much like the popular combination of screen and a text-based IRC client such as WeeChat, but graphical. Blowfish support and optional web-ui included.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/quassel-core-icon.png",
-    "image": "linuxserver/quassel-core:latest",
-    "category": ["Messenger"],
-    "platform": "linux",
-    "ports": [  
-      "4242/tcp"
-    ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "photoshow",
-    "description": "A simple, easy way to turn a photo album into a webgallery",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/photoshow-icon.png",
-    "image": "linuxserver/photoshow:latest",
-    "category": ["Photos"],
-    "platform": "linux",
-    "ports": [  
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/drupal.png",
+    "image": "drupal:latest",
+    "ports": [
       "80/tcp"
     ],
-    "volumes": [  
-      {"container": "/Pictures"},
-      {"container": "/Thumbs"},
-      {"container": "/config"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/var/www/html"
       }
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "daapd",
-    "description": "DAAP (iTunes) media server with support for AirPlay devices, Apple Remote (and compatibles), MPD and internet radio.",
-    "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/daapd-icon.png",
-    "image": "linuxserver/daapd:latest",
-    "category": ["Music"],
+    "title": "Duckdns",
+    "name": "Duckdns",
+    "description": "Duck DNS is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
+    "note": "First, go to duckdns site, register your subdomain and retrieve your token.Then run the docker create command above with your subdomain(s) and token.It will update your IP with the DuckDNS service every 5 minutes",
     "platform": "linux",
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/music"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/duckdns.png",
+    "image": "linuxserver/duckdns:latest",
+    "env": [
+      {
+        "name": "SUBDOMAINS",
+        "description": "multiple subdomains allowed, comma separated, no spaces",
+        "label": "SUBDOMAINS"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "name": "TOKEN",
+        "description": "DuckDNS token",
+        "label": "TOKEN"
+      },
+      {
+        "name": "LOG_FILE",
+        "description": "Set to true to log to file (also need to map /config).",
+        "default": "false",
+        "label": "LOG_FILE"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID (opcional)",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID (opcional)",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "DNS",
+      "Tools"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Duplicati",
+    "name": "Duplicati",
+    "description": "Free backup software to store encrypted backups online, Duplicati works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon Cloud Drive and S3, Google Drive, box.com, Mega, hubiC and many others.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/duplicati-icon.png",
+    "image": "linuxserver/duplicati:latest",
+    "ports": [
+      "8200/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/backups"
+      },
+      {
+        "container": "/source"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      },
+      {
+        "name": "CLI_ARGS",
+        "description": "Optionally specify any CLI variables you want to launch the app with (optional)",
+        "label": "CLI_ARGS"
+      }
+    ],
+    "categories": [
+      "Backup",
+      "Cloud",
+      "Tools"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Elasticsearch",
+    "name": "Elasticsearch",
+    "description": "Open-source search and analytics engine",
+    "categories": [
+      "Database"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/elasticsearch.png",
+    "image": "elasticsearch:latest",
+    "ports": [
+      "9200/tcp",
+      "9300/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/usr/share/elasticsearch/data"
       }
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "gazee",
-    "description": "A WebApp Comic Reader for your favorite digital comics. Reach and read your comic library from any web connected device with a modern web browser",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/gazee-logo.png",
+    "title": "Embystat",
+    "name": "Embystat",
+    "description": "Embystat is a personal web server that can calculate all kinds of statistics from your (local) Emby server. Just install this on your server and let him calculate all kinds of fun stuff.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/embystat.png",
+    "image": "linuxserver/embystat:latest",
+    "ports": [
+      "6555/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Web-Server"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "File browser",
+    "name": "File browser",
+    "description": "A web file manager",
+    "note": "Default credentials: admin/admin",
+    "categories": [
+      "File-System",
+      "Storage"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/filebrowser.png",
+    "image": "filebrowser/filebrowser:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/data"
+      },
+      {
+        "container": "/srv"
+      }
+    ],
+    "command": "--port 80 --database /data/database.db --scope /srv"
+  },
+  {
+    "type": 1,
+    "title": "Freshrss",
+    "name": "Freshrss",
+    "description": "A free, self-hostable rss aggregator",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/freshrss-icon.png",
+    "image": "linuxserver/freshrss:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Other"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Gazee",
+    "name": "Gazee",
+    "description": "### THIS IMAGE IS DEPRECATED ### A WebApp Comic Reader for your favorite digital comics. Reach and read your comic library from any web connected device with a modern web browser",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/gazee-logo.png",
     "image": "linuxserver/gazee:latest",
-    "category": ["Web", "Books", "Tools"],
-    "platform": "linux",
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/comics"},
-      {"container": "/mylar"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "container": "/comics"
+      },
+      {
+        "container": "/mylar"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Web",
+      "Books",
+      "Tools",
+      "Deprecated"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Ghost",
+    "name": "Ghost",
+    "description": "Free and open-source blogging platform",
+    "note": "Access the blog management interface under <code>/ghost/</code>.",
+    "categories": [
+      "Blog"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ghost.png",
+    "image": "ghost:latest",
+    "ports": [
+      "2368/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/lib/ghost/content"
       }
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "codiad",
-    "description": "Codiad is a web-based IDE framework with a small footprint and minimal requirements.\n  ",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/codiad-icon.png",
-    "image": "linuxserver/codiad:latest",
-    "category": ["Productivity"],
-    "platform": "linux",
-    "ports": [  
-      "80/tcp"
+    "title": "Gitlab ce",
+    "name": "Gitlab ce",
+    "description": "Open-source end-to-end software development platform",
+    "note": "Default username is <b>root</b>. Check the <a href=\"https://docs.gitlab.com/omnibus/docker/README.html#after-starting-a-container\" target=\"_blank\">Gitlab documentation</a> to get started.",
+    "categories": [
+      "Development",
+      "Project-Management"
     ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/gitlab_ce.png",
+    "image": "gitlab/gitlab-ce:latest",
+    "ports": [
+      "80/tcp",
+      "443/tcp",
+      "22/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/etc/gitlab"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "container": "/var/log/gitlab"
+      },
+      {
+        "container": "/var/opt/gitlab"
       }
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "oscam",
-    "description": "OScam is a softcam, software to be used to decrypt digital television channels on a settopbox (receiver), as an alternative for a conditional access module\n  (CAM). OScam is, compared with other softcams (CCcam, mgcamd, etc.), open source. Hence, the name Open Source Conditional Access Module (OScam). OScam is based on the\n  not so well known softcam MpCS. The main features of OSCam are next to its softcam capabilities, that it is able to function as a cardserver.",
-    "logo": "http://i.imgur.com/8LadrLg.png",
-    "image": "linuxserver/oscam:latest",
-    "category": ["Other"],
+    "title": "Grocy",
+    "name": "Grocy",
+    "description": "Grocy is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utulity.",
+    "note": "Keep track of your purchaes, how much food you are wasting, what chores need doing and what batteries need charging with this proudly Open Source tool For more information on grocy visit their website and check it out: https://grocy.info",
     "platform": "linux",
-    "ports": [  
-      "8888/tcp",
-      "10000/tcp"
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/grocy.png",
+    "image": "linuxserver/grocy:latest",
+    "ports": [
+      "9283:80"
     ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
       }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "ERP ",
+      "Tools"
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "kodi-headless",
-    "description": "Headless installation of Kodi\u2122 (formerly known as XBMC\u2122), to enable library updates.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/kodi-icon.png",
-    "image": "linuxserver/kodi-headless:latest",
-    "category": ["Video"],
+    "title": "Guacamole",
+    "name": "Guacamole",
+    "description": "Apache Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH. This container is only the backend server component needed to use The official or 3rd party HTML5 frontends.",
     "platform": "linux",
-    "ports": [  
-      "8080/tcp",
-      "9777/udp"
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/guacd.png",
+    "image": "linuxserver/guacd:latest",
+    "ports": [
+      "4822:4822"
     ],
-    "volumes": [{"container": "/config/.kodi"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
+    "categories": [
+      "Other"
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "pydio",
-    "description": "Pydio (formerly AjaXplorer) is a mature open source software solution for file sharing and synchronization. With intuitive user interfaces (web / mobile / desktop), Pydio provides enterprise-grade features to gain back control and privacy of your data: user directory connectors, legacy filesystems drivers, comprehensive admin interface, and much more.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/pydio-icon.png",
-    "image": "linuxserver/pydio:latest",
-    "category": ["Cloud", "Other"],
+    "title": "Headphones",
+    "name": "Headphones",
+    "description": "Headphones is an automated music downloader for NZB and Torrent, written in Python. It supports SABnzbd, NZBget, Transmission, µTorrent and Blackhole.",
     "platform": "linux",
-    "ports": [  
-      "443/tcp"
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/headphones-icon.png",
+    "image": "linuxserver/headphones:latest",
+    "ports": [
+      "8181/tcp"
     ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/data"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "container": "/downloads"
+      },
+      {
+        "container": "/music"
       }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Music",
+      "Downloaders"
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "sabnzbd",
-    "description": "SABnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/sabnzbd-icon.png",
-    "image": "linuxserver/sabnzbd:latest",
-    "category": ["Downloaders"],
+    "title": "Heimdall",
+    "name": "Heimdall",
+    "description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way. Simplicity is the key to Heimdall. Why not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo..",
     "platform": "linux",
-    "ports": [  
-      "8080/tcp",
-      "9090/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"},
-      {"container": "/incomplete-downloads"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "medusa",
-    "description": "Medusa, automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/medusa-icon.png",
-    "image": "linuxserver/medusa:latest",
-    "category": ["Downloaders", "Video"],
-    "platform": "linux",
-    "ports": [  
-      "8081/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/tv"},
-      {"container": "/downloads"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "heimdall",
-    "description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/heimdall-icon.png",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/heimdall-icon.png",
     "image": "linuxserver/heimdall:latest",
-    "category": ["Tools", "Web", "Other"],
-    "platform": "linux",
-    "ports": [  
+    "ports": [
       "80/tcp",
       "443/tcp"
     ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Tools",
+      "Web",
+      "Other"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Htpcmanager",
+    "name": "Htpcmanager",
+    "description": "Htpcmanager, a front end for many htpc related applications. Hellowlol version.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/htpcmanager-icon.png",
+    "image": "linuxserver/htpcmanager:latest",
+    "ports": [
+      "8085/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      }
+    ],
+    "categories": [
+      "Other"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Httpd",
+    "name": "Httpd",
+    "description": "Open-source HTTP server",
+    "categories": [
+      "Web-Server"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/httpd.png",
+    "image": "httpd:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/usr/local/apache2/htdocs/"
       }
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "syncthing",
-    "description": null,
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/syncthing-icon.png",
-    "image": "linuxserver/syncthing:latest",
-    "category": ["Backup:", "Cloud", "Other", "Tools"],
+    "title": "Hydra",
+    "name": "Hydra",
+    "description": "NZBHydra is a meta search for NZB indexers and the \"spiritual successor\" to NZBmegasearcH. It provides easy access to a number of raw and newznab based indexers.",
     "platform": "linux",
-    "ports": [  
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/hydra-icon.png",
+    "image": "linuxserver/hydra:latest",
+    "ports": [
+      "5075/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Other",
+      "Tools"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Hydra2",
+    "name": "Hydra2",
+    "description": "Hydra2 is a meta search application for NZB indexers, the \"spiritual successor\" to NZBmegasearcH, and an evolution of the original application NZBHydra.",
+    "note": "It provides easy access to a number of raw and newznab based indexers. The application NZBHydra 2 is currently in its early stages and is in active development. Be wary that there may be some compatibility issues for those migrating from V1 to V2, so ensure you back up your old configuration before moving over to the new version.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/hydra-icon.png",
+    "image": "linuxserver/hydra2:latest",
+    "ports": [
+      "5076/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Other",
+      "Tools"
+    ]
+  },
+  {
+    "type": 2,
+    "title": "Ironfunctions",
+    "name": "Ironfunctions",
+    "description": "Open-source serverless computing platform",
+    "note": "Deploys the IronFunctions API and UI.",
+    "categories": [
+      "Serverless"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png",
+    "repository": {
+      "stackfile": "stacks/ironfunctions/docker-stack.yml",
+      "url": "https://github.com/portainer/templates"
+    }
+  },
+  {
+    "type": 1,
+    "title": "Ironfunctions api",
+    "name": "Ironfunctions api",
+    "description": "Open-source serverless computing platform",
+    "categories": [
+      "Serverless"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png",
+    "image": "iron/functions:latest",
+    "ports": [
+      "8080/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/app/data"
+      }
+    ],
+    "privileged": true
+  },
+  {
+    "type": 1,
+    "title": "Ironfunctions ui",
+    "name": "Ironfunctions ui",
+    "description": "Open-source user interface for IronFunctions",
+    "categories": [
+      "Serverless"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ironfunctions.png",
+    "image": "iron/functions-ui:latest",
+    "ports": [
+      "4000/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/app/data"
+      }
+    ],
+    "env": [
+      {
+        "name": "API_URL",
+        "label": "API URL"
+      }
+    ],
+    "privileged": true
+  },
+  {
+    "type": 1,
+    "title": "Jackett",
+    "name": "Jackett",
+    "description": "Jackett works as a proxy server it translates queries from apps like Sonarr etc into tracker-site-specific http queries and parses the html response sending results back to the requesting software.[",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/jacket-icon.png",
+    "image": "linuxserver/jackett:latest",
+    "ports": [
+      "9117/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Tools"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Jellyfin",
+    "name": "Jellyfin",
+    "description": "Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps.",
+    "note": "Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps.",
+    "categories": [
+      "Media",
+      "Video",
+      "TV"
+    ],
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/jellyfin.png",
+    "image": "linuxserver/jellyfin:latest",
+    "ports": [
+      "8096/tcp",
+      "8920/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/data/tvshows"
+      },
+      {
+        "container": "/data/movies"
+      },
+      {
+        "container": "/transcode"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      },
+      {
+        "name": "UMASK_SET",
+        "description": "for umask setting of Emby, default if left unset is 022.",
+        "default": "022",
+        "label": "UMASK_SET"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Jenkins",
+    "name": "Jenkins",
+    "description": "Open-source continuous integration tool",
+    "categories": [
+      "Continuous-Integration"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/jenkins.png",
+    "image": "jenkins/jenkins:lts",
+    "ports": [
+      "8080/tcp",
+      "50000/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/jenkins_home"
+      }
+    ],
+    "env": [
+      {
+        "name": "JENKINS_OPTS",
+        "label": "Jenkins options"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Joomla",
+    "name": "Joomla",
+    "description": "Another free and open-source CMS",
+    "categories": [
+      "CMS"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/joomla.png",
+    "image": "joomla:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/www/html"
+      }
+    ],
+    "env": [
+      {
+        "type": "container",
+        "name": "JOOMLA_DB_HOST",
+        "label": "MySQL database host"
+      },
+      {
+        "name": "JOOMLA_DB_PASSWORD",
+        "label": "Database password"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Kodi-headless",
+    "name": "Kodi-headless",
+    "description": "A headless install of kodi in a docker container, most useful for a mysql setup of kodi to allow library updates to be sent without the need for a player system to be permanently on. The default user/password for the web interface is kodi/kodi.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/kodi-banner.png",
+    "image": "linuxserver/kodi-headless:latest",
+    "ports": [
+      "8080/tcp",
+      "9090/tcp",
+      "9777/udp"
+    ],
+    "volumes": [
+      {
+        "container": "/config/.kodi"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1001",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1001",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Video"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Lazylibrarian",
+    "name": "Lazylibrarian",
+    "description": "Lazylibrarian is a program to follow authors and grab metadata for all your digital reading needs. It uses a combination of Goodreads Librarything and optionally GoogleBooks as sources for author info and book info. This container is based on the DobyTang fork.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/lazylibrarian-icon.png",
+    "image": "linuxserver/lazylibrarian:latest",
+    "ports": [
+      "5299/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      },
+      {
+        "container": "/books"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "DOCKER_MODS",
+        "description": "(optional) & x86-64 only Adds the ability to enable the Calibredb import program",
+        "default": "1000",
+        "label": "DOCKER_MODS"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Books"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Letsencrypt",
+    "name": "Letsencrypt",
+    "description": "Letsencrypt sets up an Nginx webserver and reverse proxy with php support and a built-in letsencrypt client that automates free SSL server certificate generation and renewal processes. It also contains fail2ban for intrusion prevention.",
+    "note": "Before running this container, make sure that the url and subdomains are properly forwarded to this container's host.    - Port 443 on the internet side of the router should be forwarded to this container's port 443.  - If you need a dynamic dns provider, you can use the free provider duckdns.org where the url will be yoursubdomain.duckdns.org and the subdomains    can be www,ftp,cloud  - The container detects changes to url and subdomains, revokes existing certs and generates new ones during start.   - It also detects changes to the DHLEVEL parameter and replaces the dhparams file.    - If you'd like to password protect your sites, you can use htpasswd. Run the following command on your host to generate the htpasswd file docker exec -it letsencrypt htpasswd -c /config/nginx/.htpasswd &lt;username&gt;",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/letsencrypt.png",
+    "image": "linuxserver/letsencrypt:latest",
+    "ports": [
+      "80/tcp",
+      "443/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "URL",
+        "description": "Top url you have control over (customdomain.com if you own it, or customsubdomain.ddnsprovider.com if dynamic dns).",
+        "label": "URL"
+      },
+      {
+        "name": "SUBDOMAINS",
+        "description": "Subdomains you'd like the cert to cover (comma separated, no spaces) ie. www,ftp,cloud. For a wildcard cert, set this exactly to wildcard (wildcard cert is available via dns and duckdns validation only)",
+        "label": "SUBDOMAINS",
+        "set": "www,"
+      },
+      {
+        "name": "VALIDATION",
+        "description": "Letsencrypt validation method to use, options are http, tls-sni, dns or duckdns (dns method also requires DNSPLUGIN variable set) (duckdns method requires DUCKDNSTOKEN variable set, and the SUBDOMAINS variable must be either empty or set to wildcard).",
+        "default": "http",
+        "label": "VALIDATION",
+        "set": "http"
+      },
+      {
+        "name": "DNSPLUGIN",
+        "description": "Required if VALIDATION is set to dns. Options are cloudflare, cloudxns, digitalocean, dnsimple, dnsmadeeasy, google, inwx, luadns, nsone, ovh, rfc2136 and route53. Also need to enter the credentials into the corresponding ini file under /config/dns-conf.(opcional)",
+        "label": "DNSPLUGIN",
+        "set": "http"
+      },
+      {
+        "name": "DUCKDNSTOKEN",
+        "description": "Required if VALIDATION is set to duckdns. Retrieve your token from https://www.duckdns.org (opcional)",
+        "label": "DUCKDNSTOKEN"
+      },
+      {
+        "name": "EMAIL",
+        "description": "Optional e-mail address used for cert expiration notifications. (optional)",
+        "label": "EMAIL"
+      },
+      {
+        "name": "DHLEVEL",
+        "description": "Dhparams bit value (default=2048, can be set to 1024 or 4096). (opcional)",
+        "label": "DHLEVEL",
+        "set": "2048"
+      },
+      {
+        "name": "ONLY_SUBDOMAINS",
+        "description": "If you wish to get certs only for certain subdomains, but not the main domain (main domain may be hosted on another machine and cannot be validated), set this to true (opcional)",
+        "default": "false",
+        "label": "ONLY_SUBDOMAINS"
+      },
+      {
+        "name": "EXTRA_DOMAINS",
+        "description": "Additional fully qualified domain names (comma separated, no spaces) ie. extradomain.com,subdomain.anotherdomain.org (opcional)",
+        "label": "EXTRA_DOMAINS"
+      },
+      {
+        "name": "STAGING",
+        "description": "Set to true to retrieve certs in staging mode. Rate limits will be much higher, but the resulting cert will not pass the browser's security test. Only to be used for testing purposes. (opcional)",
+        "default": "false",
+        "label": "STAGING"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Tools",
+      "Web"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Libresonic",
+    "name": "Libresonic",
+    "description": "### THIS IMAGE IS DEPRECATED. PLEASE USE AIRSONIC ### - Libresonic is a free, web-based media streamer, providing ubiqutious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room./music - Location of music./media - Location of other media./podcasts - Location of podcasts./playlists - Location for playlists storage.CONTEXT_PATH for setting url-base in reverse proxy setups - (optional)Default user/pass is admin/admin",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/libresonic.png",
+    "image": "linuxserver/libresonic:latest",
+    "ports": [
+      "4040/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/music"
+      },
+      {
+        "container": "/playlists"
+      },
+      {
+        "container": "/podcasts"
+      },
+      {
+        "container": "/media"
+      },
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "CONTEXT_PATH",
+        "label": "CONTEXT_PATH"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Music",
+      "Deprecated"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Lidarr",
+    "name": "Lidarr",
+    "description": "Lidarr is a music collection manager for Usenet and BitTorrent users.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/lidarr.png",
+    "image": "linuxserver/lidarr:latest",
+    "ports": [
+      "8686/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      },
+      {
+        "container": "/music"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Music"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Lychee",
+    "name": "Lychee",
+    "description": "Lychee is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/lychee-icon.png",
+    "image": "linuxserver/lychee:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/pictures"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Cloud",
+      "Web",
+      "Management",
+      "Photos"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Magento 2",
+    "name": "Magento 2",
+    "description": "Open-source e-commerce platform",
+    "categories": [
+      "CMS"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/magento.png",
+    "image": "alankent/gsd:latest",
+    "ports": [
+      "80/tcp",
+      "3000/tcp",
+      "3001/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/www/html/"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Mariadb",
+    "name": "Mariadb",
+    "description": "An Enhanced drop in replacement for Mysql (linuxserver.io image)",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/mariadb-icon.png",
+    "image": "linuxserver/mariadb:latest",
+    "ports": [
+      "3306/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      },
+      {
+        "name": "MYSQL_DATABASE",
+        "description": "Specify the name of a database to be created on image startup.",
+        "label": "MYSQL_DATABASE"
+      },
+      {
+        "name": "MYSQL_USER",
+        "description": "This user will have superuser access to the database specified by MYSQL_DATABASE.",
+        "label": "MYSQL_USER"
+      },
+      {
+        "name": "MYSQL_ROOT_PASSWORD",
+        "description": "Set this to the password you want to use for your MYSQL_USER (minimum 4 characters).",
+        "label": "MYSQL_ROOT_PASSWORD"
+      }
+    ],
+    "categories": [
+      "Other",
+      "Tools"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Mautic",
+    "name": "Mautic",
+    "description": "Open-source marketing automation platform",
+    "categories": [
+      "Marketing"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mautic.png",
+    "image": "mautic/mautic:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/www/html"
+      }
+    ],
+    "env": [
+      {
+        "type": "container",
+        "name": "MAUTIC_DB_HOST",
+        "label": "MySQL database host"
+      },
+      {
+        "name": "MAUTIC_DB_PASSWORD",
+        "label": "Database password"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Mcmyadmin2",
+    "name": "Mcmyadmin2",
+    "description": "### THIS IMAGE IS DEPRECATED ### McMyAdmin combines minecraft with a web control panel and admin console so can take a little while to start up.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/mcmyadmin-icon.png",
+    "image": "linuxserver/mcmyadmin2:latest",
+    "ports": [
+      "8080/tcp",
+      "25565/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/minecraft"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Deprecated",
+      "Games"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Medusa",
+    "name": "Medusa",
+    "description": "Medusa, automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/medusa-icon.png",
+    "image": "linuxserver/medusa:latest",
+    "ports": [
+      "8081/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/tv"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Video"
+    ]
+  },
+  {
+    "type": 2,
+    "title": "Microsoft oms agent",
+    "name": "Microsoft oms agent",
+    "description": "Microsoft Operations Management Suite Linux agent.",
+    "categories": [
+      "OPS"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/microsoft.png",
+    "env": [
+      {
+        "name": "AZURE_WORKSPACE_ID",
+        "description": "Azure Workspace ID",
+        "label": "Workspace ID"
+      },
+      {
+        "name": "AZURE_PRIMARY_KEY",
+        "description": "Azure primary key",
+        "label": "Primary key"
+      }
+    ],
+    "repository": {
+      "stackfile": "stacks/microsoft-oms/docker-stack.yml",
+      "url": "https://github.com/portainer/templates"
+    }
+  },
+  {
+    "type": 1,
+    "title": "Minetest",
+    "name": "Minetest",
+    "description": "Minetest (server) is a near-infinite-world block sandbox game and a game engine, inspired by InfiniMiner, Minecraft, and the like.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/minetest-icon.png",
+    "image": "linuxserver/minetest:latest",
+    "ports": [
+      "30000/udp"
+    ],
+    "volumes": [
+      {
+        "container": "/config/.minetest"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "CLI_ARGS",
+        "description": "Optionally specify any CLI variables you want to launch the app with (opcional)",
+        "default": "1000",
+        "label": "CLI_ARGS"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Games",
+      "Other"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Minio",
+    "name": "Minio",
+    "description": "A distributed object storage server built for cloud applications and devops",
+    "categories": [
+      "Storage"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/minio.png",
+    "image": "minio/minio:latest",
+    "ports": [
+      "9000/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/data"
+      },
+      {
+        "container": "/root/.minio"
+      }
+    ],
+    "env": [
+      {
+        "name": "MINIO_ACCESS_KEY",
+        "label": "Minio access key"
+      },
+      {
+        "name": "MINIO_SECRET_KEY",
+        "label": "Minio secret key"
+      }
+    ],
+    "command": "server /data"
+  },
+  {
+    "type": 1,
+    "title": "Minisatip",
+    "name": "Minisatip",
+    "description": "Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards. The application is designed to stream the requested data to multiple clients (even with one dvb card) at the same time while opening different pids.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/minisatip-icon.png",
+    "image": "linuxserver/minisatip:latest",
+    "ports": [
+      "8875/tcp",
+      "554/tcp",
+      "1900/udp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "RUN_OPTS",
+        "description": "Specify specific run params for minisatip",
+        "label": "RUN_OPTS"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Video",
+      "Other",
+      "Tools"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Mongo",
+    "description": "Open-source document-oriented database",
+    "categories": [
+      "database"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mongo.png",
+    "image": "mongo:latest",
+    "ports": [
+      "27017/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/data/db"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "MongoDB",
+    "name": "MongoDB",
+    "description": "Open-source document-oriented database",
+    "categories": [
+      "Database"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mongo.png",
+    "image": "mongo:latest",
+    "ports": [
+      "27017/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/data/db"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Mstream",
+    "name": "Mstream",
+    "description": "Mstream is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere. There are mobile apps available for both Android and iPhone.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/mstream.png",
+    "image": "linuxserver/mstream:latest",
+    "ports": [
+      "3000/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/music"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "USER",
+        "description": "Set username to login",
+        "label": "USER"
+      },
+      {
+        "name": "PASSWORD",
+        "description": "Set password for user",
+        "label": "PASSWORD"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Music"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Musicbrainz",
+    "name": "Musicbrainz",
+    "description": " Musicbrainz is an open music encyclopedia that collects music metadata and makes it available to the public.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/musicbrainz-icon.png",
+    "image": "linuxserver/musicbrainz:latest",
+    "ports": [
+      "5000/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/data"
+      }
+    ],
+    "env": [
+      {
+        "name": "BRAINZCODE",
+        "description": "Enter musicbrainz code",
+        "label": "BRAINZCODE"
+      },
+      {
+        "name": "WEBADDRESS",
+        "description": "Set ip for host to allow css to render properly, DO NOT ENTER PORT NUMBER.",
+        "label": "WEBADDRESS"
+      },
+      {
+        "name": "NPROC",
+        "description": "To set number of processes, defaults to 5 if unset. (optional)",
+        "label": "NPROC"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Music"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Muximux",
+    "name": "Muximux",
+    "description": "A lightweight portal to view, manage your HTPC apps without having to run anything more than a PHP enabled webserver. With Muximux you don't need to keep multiple tabs open, or bookmark the URL to all of your apps.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/muximux-icon.png",
+    "image": "linuxserver/muximux:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Web",
+      "Proxy",
+      "Other",
+      "Tools"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Mylar",
+    "name": "Mylar",
+    "description": "An automated Comic Book downloader (cbr/cbz) for use with SABnzbd, NZBGet and torrents.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/mylar-icon.png",
+    "image": "linuxserver/mylar:latest",
+    "ports": [
+      "8090/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      },
+      {
+        "container": "/comics"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Books"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Mysql",
+    "name": "Mysql",
+    "description": "The most popular open-source database",
+    "categories": [
+      "Database"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mysql.png",
+    "image": "mysql:latest",
+    "ports": [
+      "3306/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/lib/mysql"
+      }
+    ],
+    "env": [
+      {
+        "name": "MYSQL_ROOT_PASSWORD",
+        "label": "Root password"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Nextcloud",
+    "name": "Nextcloud",
+    "description": "NextCloud is an open source, self-hosted file sync and communication app platform. Access and sync your files, contacts, calendars and communicate and collaborate across your devices. You decide what happens with your data, where it is and who can access it!",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/nextcloud-icon.png",
+    "image": "linuxserver/nextcloud:latest",
+    "ports": [
+      "443/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/data"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Cloud",
+      "Productivity",
+      "Tools",
+      "Other",
+      "Web"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Nginx",
+    "name": "Nginx",
+    "description": "Nginx is a web server with a strong focus on high concurrency, performance and low memory usage. It can also act as a reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer and an HTTP cache. (linuxserver.io image)",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/nginx-icon.png",
+    "image": "linuxserver/nginx:latest",
+    "ports": [
+      "80/tcp",
+      "443/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Web",
+      "Proxy"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Ngircd",
+    "name": "Ngircd",
+    "description": "Ngircd is a free, portable and lightweight Internet Relay Chat server for small or private networks, developed under the GNU General Public License (GPL).",
+    "note": "Ngircd is a free, portable and lightweight Internet Relay Chat server for small or private networks, developed under the GNU General Public License (GPL). It is easy to configure, can cope with dynamic IP addresses, and supports IPv6, SSL-protected connections as well as PAM for authentication. It is written from scratch and not based on the original IRCd.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/ngircd-logo.png",
+    "image": "linuxserver/ngircd:latest",
+    "ports": [
+      "6667/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Messenger",
+      "Tools",
+      "Other"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Nzbget",
+    "name": "Nzbget",
+    "description": "NZBGet is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources. It supports all platforms including Windows, Mac, Linux and works on all devices including PC, NAS, WLAN routers and media players",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/nzbget-icon.png",
+    "image": "linuxserver/nzbget:latest",
+    "ports": [
+      "6789/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Downloaders"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Odoo",
+    "name": "Odoo",
+    "description": "Open-source business apps",
+    "categories": [
+      "Project-Management"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/odoo.png",
+    "image": "odoo:latest",
+    "ports": [
+      "8069/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/lib/odoo"
+      },
+      {
+        "container": "/mnt/extra-addons"
+      }
+    ],
+    "env": [
+      {
+        "type": "container",
+        "name": "HOST",
+        "label": "PostgreSQL database host"
+      },
+      {
+        "name": "USER",
+        "label": "Database user"
+      },
+      {
+        "name": "PASSWORD",
+        "label": "Database password"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Ombi",
+    "name": "Ombi",
+    "description": "Ombi allows you to host your own Plex Request and user management system.",
+    "note": "If you are sharing your Plex server with other users, allow them to request new content using an easy to manage interface! Manage all your requests for Movies and TV with ease, leave notes for the user and get notification when a user requests something. Allow your users to post issues against their requests so you know there is a problem with the audio etc. Even automatically send them weekly newsletters of new content that has been added to your Plex server!",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/ombi.png",
+    "image": "linuxserver/ombi:latest",
+    "ports": [
+      "3579/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      },
+      {
+        "name": "BASE_URL",
+        "description": "Subfolder can optionally be defined as an env variable for reverse proxies. Keep in mind that once this value is defined, the gui setting for base url no longer works. To use the gui setting, remove this env variable. (opcional)",
+        "label": "BASE_URL"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Video",
+      "Tools"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Opencpn-as",
+    "name": "Opencpn-as",
+    "description": "OpenVPN Access Server is a full featured secure network tunneling VPN software solution that integrates OpenVPN server capabilities, enterprise management capabilities, simplified OpenVPN Connect UI, and OpenVPN Client software packages that accommodate Windows, MAC, Linux, Android, and iOS environments.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/openvpn-as-icon.png",
+    "image": "linuxserver/openvpn-as:latest",
+    "ports": [
+      "943/tcp",
+      "9443/tcp",
+      "1194/udp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "INTERFACE",
+        "label": "INTERFACE",
+        "set": "eth0"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      }
+    ],
+    "categories": [
+      "Other"
+    ]
+  },
+  {
+    "type": 2,
+    "title": "Openfaas",
+    "name": "Openfaas",
+    "description": "Serverless functions made simple",
+    "note": "Deploys the API gateway and sample functions. You can access the UI on port 8080. <b>Warning</b>: the name of the stack must be 'func'.",
+    "categories": [
+      "Serverless"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/openfaas.png",
+    "repository": {
+      "stackfile": "docker-compose.yml",
+      "url": "https://github.com/openfaas/faas"
+    }
+  },
+  {
+    "type": 1,
+    "title": "Openvpn-as",
+    "name": "Openvpn-as",
+    "description": "OpenVPN Access Server is a full featured secure network tunneling VPN software solution that integrates OpenVPN server capabilities, enterprise management capabilities, simplified OpenVPN Connect UI, and OpenVPN Client software packages that accommodate Windows, MAC, Linux, Android, and iOS environments.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/openvpn-as-icon.png",
+    "image": "linuxserver/openvpn-as:latest",
+    "ports": [
+      "943/tcp",
+      "9443/tcp",
+      "1194/udp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "INTERFACE",
+        "label": "INTERFACE",
+        "set": "eth0"
+      },
+      {
+        "name": "PGID",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "label": "PUID"
+      }
+    ],
+    "categories": [
+      "Other"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Organizr v2",
+    "name": "Organizr v2",
+    "description": "Organizr allows you to setup Tabs that will be loaded all in one webpage. You can then work on your server with ease.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/organizr-icon.png",
+    "image": "organizrtools/organizr-v2:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Other",
+      "Tools"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Oscam",
+    "name": "Oscam",
+    "description": "Oscam is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It's both a server and a client.",
+    "platform": "linux",
+    "logo": "http://i.imgur.com/8LadrLg.png",
+    "image": "linuxserver/oscam:latest",
+    "ports": [
+      "8888/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Other",
+      "TV"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Photoshow",
+    "name": "Photoshow",
+    "description": "Photoshow is gallery software at its easiest, it doesn't even require a database.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/photoshow-icon.png",
+    "image": "linuxserver/photoshow:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/Pictures"
+      },
+      {
+        "container": "/Thumbs"
+      },
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Photos"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Piwigo",
+    "name": "Piwigo",
+    "description": "Piwigo is photo gallery software for the web, built by an active community of users and developers.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/piwigo-icon.png",
+    "image": "linuxserver/piwigo:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Photos"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Plesk",
+    "name": "Plesk",
+    "description": "WebOps platform and hosting control panel",
+    "note": "Default credentials: admin / changeme",
+    "categories": [
+      "CMS"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/plesk.png",
+    "image": "plesk/plesk:preview",
+    "ports": [
+      "21/tcp",
+      "80/tcp",
+      "443/tcp",
+      "8880/tcp",
+      "8443/tcp",
+      "8447/tcp"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Plex",
+    "name": "Plex",
+    "description": "Plex organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. has always been a top priority. Straightforward design and bulk actions mean getting things done faster.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/plex-icon.png",
+    "image": "linuxserver/plex:latest",
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "VERSION",
+        "label": "VERSION",
+        "set": "latest"
+      }
+    ],
+    "categories": [
+      "Video",
+      "Music",
+      "Photos"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Plexrequests",
+    "name": "Plexrequests",
+    "description": "Simple automated way for users to request new content for Plex.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/plexrequests-icon.png",
+    "image": "linuxserver/plexrequests:latest",
+    "ports": [
+      "3000/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "URL_BASE",
+        "label": "URL_BASE"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Other",
+      "Video",
+      "Tools"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Plone",
+    "name": "Plone",
+    "description": "A free and open-source CMS built on top of Zope",
+    "categories": [
+      "CMS"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/plone.png",
+    "image": "plone:latest",
+    "ports": [
+      "8080/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/data"
+      }
+    ]
+  },
+  {
+    "type": 2,
+    "title": "Portainer agent",
+    "name": "Portainer agent",
+    "description": "Manage all the resources in your Swarm cluster",
+    "note": "The agent will be deployed globally inside your cluster and available on port 9001.",
+    "categories": [
+      "portainer"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/portainer.png",
+    "repository": {
+      "stackfile": "stacks/portainer-agent/docker-stack.yml",
+      "url": "https://github.com/portainer/templates"
+    }
+  },
+  {
+    "type": 1,
+    "title": "Postgresql",
+    "name": "Postgresql",
+    "description": "The most advanced open-source database",
+    "categories": [
+      "Database"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/postgres.png",
+    "image": "postgres:latest",
+    "ports": [
+      "5432/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/lib/postgresql/data"
+      }
+    ],
+    "env": [
+      {
+        "name": "POSTGRES_USER",
+        "label": "Superuser"
+      },
+      {
+        "name": "POSTGRES_PASSWORD",
+        "label": "Superuser password"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Projectsend",
+    "name": "Projectsend",
+    "description": "ProjectSend is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself! Secure, private and easy. No more depending on external services or e-mail to send those files!",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/projectsend-logo.png",
+    "image": "linuxserver/projectsend:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/data"
+      },
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "MAX_UPLOAD",
+        "description": "To set maximum upload size (in MB), default if unset is 5000.",
+        "label": "MAX_UPLOAD"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Cloud",
+      "File-Share",
+      "Productivity",
+      "Tools",
+      "Other"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Pydio",
+    "name": "Pydio",
+    "description": "Pydio (formerly AjaXplorer) is a mature open source software solution for file sharing and synchronization. With intuitive user interfaces (web / mobile / desktop), Pydio provides enterprise-grade features to gain back control and privacy of your data: user directory connectors, legacy filesystems drivers, comprehensive admin interface, and much more.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/pydio-banner.png",
+    "image": "linuxserver/pydio:latest",
+    "ports": [
+      "443/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/data"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Cloud",
+      "File-Share",
+      "Other"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Pyload",
+    "name": "Pyload",
+    "description": "Pyload is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/pyload.png",
+    "image": "linuxserver/pyload:latest",
+    "ports": [
+      "8000/tcp",
+      "7227/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Other"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Qbittorrent",
+    "name": "Qbittorrent",
+    "description": "The qBitTorrent project aims to provide an open-source software alternative to µTorrent. qBitTorrent is based on the Qt toolkit and libtorrent-rasterbar library.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/qbittorrent-icon.png",
+    "image": "linuxserver/qbittorrent:latest",
+    "ports": [
+      "6881/tcp",
+      "6881/udp",
+      "8080/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Downloaders"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Quassel-core",
+    "name": "Quassel-core",
+    "description": "Quassel IRC is a modern, cross-platform, distributed IRC client, meaning that one (or multiple) client(s) can attach to and detach from a central core -- much like the popular combination of screen and a text-based IRC client such as WeeChat, but graphical. Blowfish support and optional web-ui included.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/quassel-core-icon.png",
+    "image": "linuxserver/quassel-core:latest",
+    "ports": [
+      "4242/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      }
+    ],
+    "categories": [
+      "Messenger"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Quassel-web",
+    "name": "Quassel-web",
+    "description": "Quassel-web is a web client for Quassel. Note that a Quassel-Core instance is required, we have a container available here.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/quassel-core-banner.png",
+    "image": "linuxserver/quassel-web:latest",
+    "ports": [
+      "64080/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "QUASSEL_CORE",
+        "description": "Specify the URL or IP address of your Quassel Core instance",
+        "label": "QUASSEL_CORE"
+      },
+      {
+        "name": "QUASSEL_PORT",
+        "description": "Specify the port of your Quassel Core instance",
+        "label": "QUASSEL_PORT"
+      },
+      {
+        "name": "URL_BASE",
+        "description": "Specify a url-base in reverse proxy setups ie. /quassel (optional)",
+        "label": "URL_BASE"
+      }
+    ],
+    "categories": [
+      "Tools",
+      "Other"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Rabbitmq",
+    "name": "Rabbitmq",
+    "description": "Highly reliable enterprise messaging system",
+    "categories": [
+      "Messenger"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/rabbitmq.png",
+    "image": "rabbitmq:latest",
+    "ports": [
+      "5671/tcp",
+      "5672/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/lib/rabbitmq"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Radarr",
+    "name": "Radarr",
+    "description": "Radarr - A fork of Sonarr to work with movies à la Couchpotato.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/radarr.png",
+    "image": "linuxserver/radarr:latest",
+    "ports": [
+      "7878/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      },
+      {
+        "container": "/movies"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Video"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "radarr preview",
+    "description": "Radarr - A fork of Sonarr to work with movies à la Couchpotato.",
+    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/radarr.png",
+    "image": "linuxserver/radarr:preview",
+    "category": [
+      "Downloaders",
+      "Video"
+    ],
+    "platform": "linux",
+    "ports": [
+      "7878/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      },
+      {
+        "container": "/movies"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID",
+        "set": ""
+      },
+      {
+        "name": "PGID",
+        "label": "PGID",
+        "set": ""
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Raneto",
+    "name": "Raneto",
+    "description": "Raneto - is an open source Knowledgebase platform that uses static Markdown files to power your Knowledgebase.",
+    "categories": [
+      "Tools",
+      "Other"
+    ],
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/raneto.png",
+    "image": "linuxserver/raneto:latest",
+    "ports": [
+      "3000/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Redis",
+    "name": "Redis",
+    "description": "Open-source in-memory data structure store",
+    "categories": [
+      "Database"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/redis.png",
+    "image": "redis:latest",
+    "ports": [
+      "6379/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/data"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Redmine",
+    "name": "Redmine",
+    "description": "Open-source project management tool",
+    "categories": [
+      "Project-Management"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/redmine.png",
+    "image": "redmine:latest",
+    "ports": [
+      "3000/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/usr/src/redmine/files"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Registry",
+    "name": "Registry",
+    "description": "Docker image registry",
+    "categories": [
+      "Docker"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/registry.png",
+    "image": "registry:latest",
+    "ports": [
+      "5000/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/lib/registry"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Resilio-sync",
+    "name": "Resilio-sync",
+    "description": "Resilio Sync (formerly BitTorrent Sync) uses the BitTorrent protocol to sync files and folders between all of your devices. There are both free and paid versions, this container supports both.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/resilio.png",
+    "image": "linuxserver/resilio-sync:latest",
+    "ports": [
+      "8888/tcp",
+      "55555/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/sync"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Backup",
+      "Cloud",
+      "Other",
+      "Tools"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Rutorrent",
+    "name": "Rutorrent",
+    "description": "Popular torrent client with a webui for ease of use.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/rutorrent-icon.png",
+    "image": "linuxserver/rutorrent:latest",
+    "ports": [
+      "80/tcp",
+      "51413/tcp",
+      "6881/udp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Downloaders"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Sabnzbd",
+    "name": "Sabnzbd",
+    "description": "Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/sabnzbd-icon.png",
+    "image": "linuxserver/sabnzbd:latest",
+    "ports": [
+      "8080/tcp",
+      "9090/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      },
+      {
+        "container": "/incomplete-downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Downloaders"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Scality s3",
+    "name": "Scality s3",
+    "description": "Standalone AWS S3 protocol server",
+    "categories": [
+      "Storage"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/scality-s3.png",
+    "image": "scality/s3server",
+    "ports": [
+      "8000/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/usr/src/app/localData"
+      },
+      {
+        "container": "/usr/src/app/localMetadata"
+      }
+    ],
+    "env": [
+      {
+        "name": "SCALITY_ACCESS_KEY",
+        "label": "Scality S3 access key"
+      },
+      {
+        "name": "SCALITY_SECRET_KEY",
+        "label": "Scality S3 secret key"
+      }
+    ]
+  },
+  {
+    "type": 2,
+    "title": "Sematext docker agent",
+    "name": "Sematext docker agent",
+    "description": "Collect logs, metrics and docker events",
+    "categories": [
+      "Log Management",
+      "Monitoring"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/sematext_agent.png",
+    "env": [
+      {
+        "name": "LOGSENE_TOKEN",
+        "label": "Logs token"
+      },
+      {
+        "name": "SPM_TOKEN",
+        "label": "SPM monitoring token"
+      }
+    ],
+    "repository": {
+      "stackfile": "stacks/sematext-agent-docker/docker-stack.yml",
+      "url": "https://github.com/portainer/templates"
+    }
+  },
+  {
+    "type": 1,
+    "title": "Sickchill",
+    "name": "Sickchill",
+    "description": "Sickchill is an Automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/sickchill-banner.png",
+    "image": "linuxserver/sickchill:latest",
+    "ports": [
+      "8081/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      },
+      {
+        "container": "/tv"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Video"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Sickgear",
+    "name": "Sickgear",
+    "description": "SickGear provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/sickgear.png",
+    "image": "linuxserver/sickgear:latest",
+    "ports": [
+      "8081/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/tv"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      }
+    ],
+    "categories": [
+      "Video",
+      "TV"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Sickrage",
+    "name": "Sickrage",
+    "description": "### THIS IMAGE IS DEPRECATED. PLEASE USE SICKCHILL ### - Automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/sickrage-icon.png",
+    "image": "linuxserver/sickrage:latest",
+    "ports": [
+      "8081/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/downloads"
+      },
+      {
+        "container": "/tv"
+      }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Video",
+      "Deprecated"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Smokeping",
+    "name": "Smokeping",
+    "description": "Smokeping keeps track of your network latency. For a full example of what this application is capable of visit UCDavis.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/smokeping-icon.png",
+    "image": "linuxserver/smokeping:latest",
+    "ports": [
+      "80/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/data"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Network"
+    ]
+  },
+  {
+    "type": 2,
+    "title": "Snipe-it",
+    "name": "Snipe-it",
+    "description": "Snipe-it makes asset management easy. It was built by people solving real-world IT and asset management problems, and a solid UX has always been a top priority. Straightforward design and bulk actions mean getting things done faster.",
+    "categories": [
+      "Management",
+      "Tools",
+      "Other"
+    ],
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/snipe-it.png",
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "APP_URL",
+        "description": "Hostname or IP and port if applicable IE ip or hostname:8080",
+        "label": "APP_URL"
+      },
+      {
+        "name": "MYSQL_PORT_3306_TCP_ADDR",
+        "description": "Mysql hostname or IP to use",
+        "label": "MYSQL_PORT_3306_TCP_ADDR"
+      },
+      {
+        "name": "MYSQL_PORT_3306_TCP_PORT",
+        "description": "Mysql port to use",
+        "label": "MYSQL_PORT_3306_TCP_PORT"
+      },
+      {
+        "name": "MYSQL_DATABASE",
+        "description": "Mysql database to use",
+        "label": "MYSQL_DATABASE"
+      },
+      {
+        "name": "MYSQL_USER",
+        "description": "Mysql user to use",
+        "label": "MYSQL_USER"
+      },
+      {
+        "name": "MYSQL_PASSWORD",
+        "description": "Mysql password to use",
+        "label": "MYSQL_PASSWORD"
+      }
+    ],
+    "repository": {
+      "stackfile": "stacks/snipe-it/docker-stack.yaml",
+      "url": "https://github.com/frdmir/portainer_templates"
+    }
+  },
+  {
+    "type": 1,
+    "title": "Solr",
+    "name": "Solr",
+    "description": "Open-source enterprise search platform",
+    "categories": [
+      "Search-Engine"
+    ],
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/solr.png",
+    "image": "solr:latest",
+    "ports": [
+      "8983/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/opt/solr/mydata"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Sonarr",
+    "name": "Sonarr",
+    "description": "Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/sonarr-icon.png",
+    "image": "linuxserver/sonarr:latest",
+    "ports": [
+      "8989/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/dev/rtc"
+      },
+      {
+        "container": "/tv"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Downloaders",
+      "Video"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "sonarr beta",
+    "description": "Sonar preview version",
+    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/sonarr-icon.png",
+    "image": "linuxserver/sonarr:preview",
+    "category": [
+      "Downloaders",
+      "Video"
+    ],
+    "platform": "linux",
+    "ports": [
+      "8989/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/dev/rtc"
+      },
+      {
+        "container": "/tv"
+      },
+      {
+        "container": "/downloads"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID",
+        "set": ""
+      },
+      {
+        "name": "PGID",
+        "label": "PGID",
+        "set": ""
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Sql server",
+    "name": "Sql server",
+    "description": "Microsoft SQL Server Developer for Windows containers",
+    "note": "Password needs to include at least 8 characters including uppercase, lowercase letters, base-10 digits and/or non-alphanumeric symbols.",
+    "categories": [
+      "Database"
+    ],
+    "platform": "windows",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/microsoft.png",
+    "image": "microsoft/mssql-server-windows-developer:latest",
+    "ports": [
+      "1433/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "C:/temp/"
+      }
+    ],
+    "env": [
+      {
+        "name": "ACCEPT_EULA",
+        "set": "Y"
+      },
+      {
+        "name": "sa_password",
+        "label": "SA password"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Sql server express",
+    "name": "Sql server express",
+    "description": "Microsoft SQL Server Express for Windows containers",
+    "note": "Password needs to include at least 8 characters including uppercase, lowercase letters, base-10 digits and/or non-alphanumeric symbols.",
+    "categories": [
+      "Database"
+    ],
+    "platform": "windows",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/microsoft.png",
+    "image": "microsoft/mssql-server-windows-express:latest",
+    "ports": [
+      "1433/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "C:/temp/"
+      }
+    ],
+    "env": [
+      {
+        "name": "ACCEPT_EULA",
+        "set": "Y"
+      },
+      {
+        "name": "sa_password",
+        "label": "SA password"
+      }
+    ]
+  },
+  {
+    "type": 1,
+    "title": "Syncthing",
+    "name": "Syncthing",
+    "description": "Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.",
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/syncthing-icon.png",
+    "image": "linuxserver/syncthing:latest",
+    "ports": [
       "8384/tcp",
       "21027/udp",
       "22000/tcp"
     ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/sync"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "container": "/syncfolder1"
+      },
+      {
+        "container": "/syncfolder2"
       }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "UMASK_SET",
+        "description": "Umask setting",
+        "default": "022",
+        "label": "UMASK_SET"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Backup",
+      "Cloud",
+      "Tools"
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "muximux",
-    "description": "A lightweight portal to view, manage your HTPC apps without having to run anything more than a PHP enabled webserver. With Muximux you don't need to keep multiple tabs open, or bookmark the URL to all of your apps.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/muximux-icon.png",
-    "image": "linuxserver/muximux:latest",
-    "category": ["Web", "Proxy", "Other", "Tools"],
+    "title": "Taisun",
+    "name": "Taisun",
+    "description": "Taisun is an application for a Docker enabled device with an emphasis on providing a web based interface for managing a single server.",
+    "note": "<p>Taisun allows you to:</p><ul><li>Deploy and manage web based virtual desktops.</li><li>Deploy Taisun specific stacks of applications</li><li>Browse available images on popular Docker repositories</li><li>Import a Docker project from any git repository and start developing on your choice of web based IDE or full Linux desktop</li><li>Spinup a developer container based on popular frameworks and work from a web based IDE</li><li>Single click remote server access to Taisun and your Docker applications</li></ul>",
     "platform": "linux",
-    "ports": [  
-      "80/tcp"
-    ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "beets",
-    "description": "The purpose of beets is to get your music collection right once and for all. It catalogs your collection, automatically improving its metadata as it goes using the MusicBrainz database. Then it provides a bouquet of tools for manipulating and accessing your music.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/beets-icon.png",
-    "image": "linuxserver/beets:latest",
-    "category": ["Music"],
-    "platform": "linux",
-    "ports": [  
-      "8337/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"},
-      {"container": "/music"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "plexrequests",
-    "description": "Simple automated way for users to request new content for Plex.",
-    "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/plexrequests-icon.png",
-    "image": "linuxserver/plexrequests:latest",
-    "category": ["Downloaders", "Other", "Video", "Tools"],
-    "platform": "linux",
-    "ports": [  
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/taisun.png",
+    "image": "linuxserver/taisun:latest",
+    "ports": [
       "3000/tcp"
     ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"URL_BASE",
-        "label":"URL_BASE",
-        "set":""
+    "volumes": [
+      {
+        "bind": "/var/run/docker.sock",
+        "container": "/var/run/docker.sock"
       }
-    ]
+    ],
+    "categories": [
+      "Dashboard ",
+      "Tools"
+    ],
+    "network": "bridge"
   },
-  {  
+  {
     "type": 1,
-    "title": "mariadb",
-    "description": "An Enhanced drop in replacement for Mysql",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/mariadb-icon.png",
-    "image": "linuxserver/mariadb:latest",
-    "category": ["Other", "Tools"],
+    "title": "Tautulli",
+    "name": "Tautulli",
+    "description": "Tautulli is a python based web application for monitoring, analytics and notifications for Plex Media Server.",
+    "note": "Tautulli is a 3rd party application that you can run along side your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.[br][br]  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]  [b]8181[/b] The webui for Tautulli's webui [br]  [b]/config[/b] Storing Configuration and the Tautulli database[br][b]/logs[/b] Map to you plex logs (required for IP logging)[br]",
     "platform": "linux",
-    "ports": [  
-      "3306/tcp"
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/tautulli-icon.png",
+    "image": "linuxserver/tautulli:latest",
+    "ports": [
+      "8181/tcp"
     ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/logs"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"MYSQL_ROOT_PASSWORD",
-        "label":"MYSQL_ROOT_PASSWORD",
-        "set":""
+      {
+        "container": "/config"
       }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Video",
+      "TV",
+      "Other",
+      "Tools"
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "znc",
-    "description": "ZNC is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/znc-icon.png",
-    "image": "linuxserver/znc:latest",
-    "category": ["Messenger"],
+    "title": "Thelounge",
+    "name": "Thelounge",
+    "description": "Thelounge (a fork of shoutIRC) is a web IRC client that you host on your own server.",
     "platform": "linux",
-    "ports": [  
-      "6501/tcp"
-    ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "cops",
-    "description": "COPS links to your Calibre library database and allows downloading and emailing of books directly from a web browser and provides a OPDS feed to connect to your devices.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/cops-icon.png",
-    "image": "linuxserver/cops:latest",
-    "category": ["Cloud", "Books"],
-    "platform": "linux",
-    "ports": [  
-      "80/tcp"
-    ],
-    "volumes": [  
-      {"container": "/books"},
-      {"container": "/config"}
-    ],
-    "env": [  
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "thelounge",
-    "description": "A self-hosted web IRC client",
     "logo": "https://raw.githubusercontent.com/linuxserver/community-templates/master/lsiocommunity/img/shout-icon.png",
     "image": "linuxserver/thelounge:latest",
-    "category": ["Messenger"],
-    "platform": "linux",
-    "ports": [  
+    "ports": [
       "9000/tcp"
     ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
       }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Messenger"
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "nzbget",
-    "description": "NZBGet is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources. It supports all platforms including Windows, Mac, Linux and works on all devices including PC, NAS, WLAN routers and media players",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/nzbget-icon.png",
-    "image": "linuxserver/nzbget:latest",
-    "category": ["Downloaders"],
+    "title": "Transmission",
+    "name": "Transmission",
+    "description": "Transmission is designed for easy, powerful use. Transmission has the features you want from a BitTorrent client: encryption, a web interface, peer exchange, magnet links, DHT, µTP, UPnP and NAT-PMP port forwarding, webseed support, watch directories, tracker editing, global and per-torrent speed limits, and more.",
     "platform": "linux",
-    "ports": [  
-      "6789/tcp"
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/transmission-icon.png",
+    "image": "linuxserver/transmission:latest",
+    "ports": [
+      "9091/tcp",
+      "51413/tcp"
     ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "container": "/downloads"
+      },
+      {
+        "container": "/watch"
       }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Downloaders"
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "ombi",
-    "description": "Ombi allows you to host your own Plex Request and user management system. ",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/ombi.png",
-    "image": "linuxserver/ombi:latest",
-    "category": ["Downloaders", "Other", "Video", "Tools"],
+    "title": "Tt-rss",
+    "name": "Tt-rss",
+    "description": "TT-rss is an open source web-based news feed (RSS/Atom) reader and aggregator, designed to allow you to read news from any location, while feeling as close to a real desktop application as possible.",
     "platform": "linux",
-    "ports": [  
-      "3579/tcp"
-    ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "lychee",
-    "description": "Lychee is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/lychee-icon.png",
-    "image": "linuxserver/lychee:latest",
-    "category": ["Cloud", "Web", "Management", "Photos"],
-    "platform": "linux",
-    "ports": [  
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/tt-rss-icon.png",
+    "image": "linuxserver/tt-rss:latest",
+    "ports": [
       "80/tcp"
     ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/pictures"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
       }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Other"
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "deluge",
-    "description": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client providing: Full Encryption, WebUI, Plugin System, Much more...",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/deluge-icon.png",
-    "image": "linuxserver/deluge:latest",
-    "category": ["Downloaders"],
+    "title": "Tvheadend",
+    "name": "Tvheadend",
+    "description": "Tvheadend is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT, IP and HDHomeRun as input sources. Tvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT, IP streaming. Multiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).",
     "platform": "linux",
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"}
+    "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/tvheadend-big.png",
+    "image": "linuxserver/tvheadend:latest",
+    "ports": [
+      "9981/tcp",
+      "9982/tcp"
     ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"UMASK_SET",
-        "label":"UMASK_SET",
-        "set":"000"
+      {
+        "container": "/recordings"
       }
+    ],
+    "env": [
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      }
+    ],
+    "categories": [
+      "Video",
+      "Other"
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "nginx",
-    "description": "Nginx is a web server with a strong focus on high concurrency, performance and low memory usage. It can also act as a reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer and an HTTP cache.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/nginx-icon.png",
-    "image": "linuxserver/nginx:latest",
-    "category": ["Web", "Proxy"],
+    "title": "Ubooquity",
+    "name": "Ubooquity",
+    "description": "Ubooquity is a free, lightweight and easy-to-use home server for your comics and ebooks. Use it to access your files from anywhere, with a tablet, an e-reader, a phone or a computer.",
     "platform": "linux",
-    "ports": [  
-      "80/tcp",
-      "443/tcp"
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/ubooquity-icon.png",
+    "image": "linuxserver/ubooquity:latest",
+    "ports": [
+      "2202/tcp",
+      "2203/tcp"
     ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/books"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "container": "/comics"
+      },
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/files"
       }
+    ],
+    "env": [
+      {
+        "name": "MAXMEM",
+        "description": "To set the maximum memory. ( ex: set '1024' for 1GB )",
+        "default": "512",
+        "label": "MAXMEM"
+      },
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
+      }
+    ],
+    "categories": [
+      "Cloud",
+      "Books"
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "lidarr",
-    "description": "Lidarr is a music collection manager for Usenet and BitTorrent users.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/lidarr.png",
-    "image": "linuxserver/lidarr:latest",
-    "category": ["Downloaders","Music"],
+    "title": "Unifi-controller",
+    "name": "Unifi-controller",
+    "description": "The Unifi-controller Controller software is a powerful, enterprise wireless software engine ideal for high-density client deployments requiring low latency and high uptime performance.",
     "platform": "linux",
-    "ports": [  
-      "8686/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"},
-      {"container": "/music"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "cardigann",
-    "description": "Cardigann, a server for adding extra indexers to Sonarr, SickRage and CouchPotato via Torznab and TorrentPotato proxies. Behind the scenes Cardigann logs in and runs searches and then transforms the results into a compatible format.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/cardigann.png",
-    "image": "linuxserver/cardigann:latest",
-    "category": ["Downloaders"],
-    "platform": "linux",
-    "ports": [  
-      "5060/tcp"
-    ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "unifi",
-    "description": null,
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/unifi-icon.png",
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/unifi.png",
     "image": "linuxserver/unifi-controller:latest",
-    "category": ["Management", "Tools"],
-    "platform": "linux",
-    "ports": [  
+    "ports": [
       "3478/udp",
       "10001/udp",
       "8080/tcp",
@@ -1051,961 +4937,251 @@
       "8880/tcp",
       "6789/tcp"
     ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
       }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      },
+      {
+        "name": "MEM_LIMIT",
+        "label": "opcional"
+      }
+    ],
+    "categories": [
+      "Management",
+      "Tools"
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "calibre-web",
-    "description": "Calibre Web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.\n\n  [br][br]\n  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]\n  [b]/config[/b] Where Calibre-web should store it's database[br]\n  [b]/books[/b] Path to your calibre library metadata.db file[br]",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/calibre-web-icon.png",
-    "image": "linuxserver/calibre-web:latest",
-    "category": ["Cloud", "Books"],
-    "platform": "linux",
-    "ports": [  
-      "8083/tcp"
-    ],
-    "volumes": [  
-      {"container": "/books"},
-      {"container": "/config"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "plex",
+    "title": "unifi",
     "description": null,
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/plex-icon.png",
-    "image": "linuxserver/plex:latest",
-    "category": ["Video", "Music", "Photos"],
+    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/unifi-icon.png",
+    "image": "linuxserver/unifi:latest",
+    "category": [
+      "Management",
+      "Tools"
+    ],
     "platform": "linux",
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"VERSION",
-        "label":"VERSION",
-        "set":"latest"
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "hydra",
-    "description": "NZBHydra is a meta search for NZB indexers and the \"spiritual successor\" to NZBmegasearcH. It provides easy access to a number of raw and newznab based indexers.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/hydra-icon.png",
-    "image": "linuxserver/hydra:latest",
-    "category": ["Downloaders", "Other", "Tools"],
-    "platform": "linux",
-    "ports": [  
-      "5075/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "headphones",
-    "description": null,
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/headphones-icon.png",
-    "image": "linuxserver/headphones:latest",
-    "category": ["Music"],
-    "platform": "linux",
-    "ports": [  
-      "8181/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"},
-      {"container": "/music"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "qbittorrent",
-    "description": "The qBittorrent project aims to provide an open-source software alternative to \u00b5Torrent. qBittorrent is based on the Qt toolkit and libtorrent-rasterbar library.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/qbittorrent-icon.png",
-    "image": "linuxserver/qbittorrent:latest",
-    "category": ["Downloaders"],
-    "platform": "linux",
-    "ports": [  
-      "6881/tcp",
-      "6881/udp",
-      "8080/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "couchpotato",
-    "description": "CouchPotato (CP) is an automatic NZB and torrent downloader. You can keep a \"movies I want\"-list and it will search for NZBs/torrents of these movies every X hours. Once a movie is found, it will send it to SABnzbd or download the torrent to a specified directory.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/couchpotato-icon.png",
-    "image": "linuxserver/couchpotato:latest",
-    "category": ["Downloaders", "Video"],
-    "platform": "linux",
-    "ports": [  
-      "5050/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"},
-      {"container": "/movies"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "davos",
-    "description": "davos is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.\r\n\r\n/config : AppData Location\r\n/download : File Download Location",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/davos.png",
-    "image": "linuxserver/davos:latest",
-    "category": ["FTP", "Other", "Tools"],
-    "platform": "linux",
-    "ports": [  
-      "8080/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/download"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "tt-rss",
-    "description": "Tiny Tiny RSS is an open source web-based news feed (RSS/Atom) reader and aggregator, designed to allow you to read news from any location, while feeling as close to a real desktop application as possible.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/tt-rss-icon.png",
-    "image": "linuxserver/tt-rss:latest",
-    "category": ["Other"],
-    "platform": "linux",
-    "ports": [  
-      "80/tcp"
-    ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "freshrss",
-    "description": "A free, self-hostable rss aggregator\u2026",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/freshrss-icon.png",
-    "image": "linuxserver/freshrss:latest",
-    "category": ["Other"],
-    "platform": "linux",
-    "ports": [  
-      "80/tcp"
-    ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "mcmyadmin2",
-    "description": null,
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/mcmyadmin-icon.png",
-    "image": "linuxserver/mcmyadmin2:latest",
-    "category": ["Other"],
-    "platform": "linux",
-    "ports": [  
+    "ports": [
+      "3478/udp",
+      "10001/udp",
       "8080/tcp",
-      "25565/tcp"
+      "8081/tcp",
+      "8443/tcp",
+      "8843/tcp",
+      "8880/tcp"
     ],
-    "volumes": [{"container": "/minecraft"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID",
+        "set": ""
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "name": "PGID",
+        "label": "PGID",
+        "set": ""
       }
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "openvpn-as",
-    "description": "OpenVPN Access Server is a full featured secure network tunneling VPN software solution that integrates OpenVPN server capabilities, enterprise management capabilities, simplified OpenVPN Connect UI, and OpenVPN Client software packages that accommodate Windows, MAC, Linux, Android, and iOS environments.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/openvpn-as-icon.png",
-    "image": "linuxserver/openvpn-as:latest",
-    "category": ["Other"],
-    "platform": "linux",
-    "ports": [  
-      "943/tcp",
-      "9443/tcp",
-      "1194/udp"
+    "title": "Urbackup",
+    "name": "Urbackup",
+    "description": "Open-source network backup",
+    "note": "This application web interface is exposed on the port 55414 inside the container.",
+    "categories": [
+      "Backup"
     ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"INTERFACE",
-        "label":"INTERFACE",
-        "set":"eth0"
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/urbackup.png",
+    "image": "cfstras/urbackup",
+    "ports": [
+      "55413/tcp",
+      "55414/tcp",
+      "55415/tcp",
+      "35622/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/urbackup"
       }
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "mylar",
-    "description": "An automated Comic Book downloader (cbr/cbz) for use with SABnzbd, NZBGet and torrents.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/mylar-icon.png",
-    "image": "linuxserver/mylar:latest",
-    "category": ["Downloaders", "Books"],
+    "title": "Webgrab+plus",
+    "name": "Webgrab+plus",
+    "description": "WebGrab+Plus is a multi-site incremental xmltv epg grabber. It collects tv-program guide data from selected tvguide sites for your favourite channels.",
     "platform": "linux",
-    "ports": [  
-      "8090/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"},
-      {"container": "/comics"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/webgrabplus.png",
+    "image": "linuxserver/webgrabplus:latest",
+    "volumes": [
+      {
+        "container": "/config"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "container": "/data"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "label": "PUID"
+      },
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "label": "PGID"
+      }
+    ],
+    "categories": [
+      "Downloaders"
+    ]
+  },
+  {
+    "type": 1,
+    "title": "webgrabplus",
+    "description": "WebGrab+Plus is a multi-site incremental xmltv epg grabber. It collects tv-program guide data from selected tvguide sites for your favourite channels.[br]\r\n\t\tOptional postprocessors to add IMDb data or to customize your xmltv listing.[br]\r\n\t\thttp://www.webgrabplus.com/[br]\r\n\t\t[b][span style='color: #E80000;']Directions:[/span][/b][br]\r\n\t\t[b]/config[/b] : This is where WebGrab+Plus will store it's configuration.[br][br]\r\n\t\t[b]/data[/b] : This is where tv_grab_wg script in the Tvheadend container looks for the guide.xml file.[br][br]",
+    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/webgrabplus.png",
+    "image": "linuxserver/webgrabplus:latest",
+    "category": [
+      "Downloaders"
+    ],
+    "platform": "linux",
+    "volumes": [
+      {
+        "container": "/config"
+      },
+      {
+        "container": "/data"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID",
+        "set": ""
+      },
+      {
+        "name": "PGID",
+        "label": "PGID",
+        "set": ""
       }
     ]
   },
-  {  
-    "type": 1,
-    "title": "hydra2",
-    "description": "NZBHydra is a meta search for NZB indexers and the \"spiritual successor\" to NZBmegasearcH. It provides easy access to a number of raw and newznab based indexers.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/hydra-icon.png",
-    "image": "linuxserver/hydra2:latest",
-    "category": ["Downloaders", "Other", "Tools"],
+  {
+    "type": 3,
+    "title": "Wordpress",
+    "name": "Wordpress",
+    "description": "Wordpress setup with a MySQL database",
+    "note": "Deploys a Wordpress instance connected to a MySQL database.",
+    "categories": [
+      "CMS"
+    ],
     "platform": "linux",
-    "ports": [  
-      "5076/tcp"
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wordpress.png",
+    "env": [
+      {
+        "name": "MYSQL_DATABASE_PASSWORD",
+        "description": "Password used by the MySQL root user.",
+        "label": "Database root password"
+      }
     ],
-    "volumes": [  
-      {"container": "/config" },
-      {"container": "/downloads"}
+    "repository": {
+      "stackfile": "stacks/wordpress/docker-compose.yml",
+      "url": "https://github.com/portainer/templates"
+    }
+  },
+  {
+    "type": 1,
+    "title": "Wowza",
+    "name": "Wowza",
+    "description": "Streaming media server",
+    "categories": [
+      "Streaming"
     ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "platform": "linux",
+    "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wowza.png",
+    "image": "sameersbn/wowza:4.1.2-8",
+    "ports": [
+      "1935/tcp",
+      "8086/tcp",
+      "8087/tcp",
+      "8088/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/lib/wowza"
+      }
+    ],
+    "env": [
+      {
+        "name": "WOWZA_ACCEPT_LICENSE",
+        "label": "Agree to Wowza EULA",
+        "set": "yes"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "name": "WOWZA_KEY",
+        "label": "License key"
       }
     ]
   },
-  {  
+  {
     "type": 1,
-    "title": "projectsend",
-    "description": "ProjectSend is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself! Secure, private and easy. No more depending on external services or e-mail to send those files!\n  ",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/projectsend-logo.png",
-    "image": "linuxserver/projectsend:latest",
-    "category": ["Cloud", "Productivity", "Tools", "Other"],
+    "title": "Znc",
+    "name": "Znc",
+    "description": "Znc is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC. The default user/password for the web interface is admin/admin.",
     "platform": "linux",
-    "ports": [  
-      "80/tcp"
+    "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/znc-icon.png",
+    "image": "linuxserver/znc:latest",
+    "ports": [
+      "6501/tcp"
     ],
-    "volumes": [  
-      {"container": "/data"},
-      {"container": "/config"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+    "volumes": [
+      {
+        "container": "/config"
       }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "minetest",
-    "description": "Server version of minetest, a free, open source alternative to minecraft.",
-    "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/minetest-icon.png",
-    "image": "linuxserver/minetest:latest",
-    "category": ["Other"],
-    "platform": "linux",
-    "ports": [  
-      "30000/udp"
     ],
-    "volumes": [{"container": "/config/.minetest"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
+    "env": [
+      {
+        "name": "PUID",
+        "description": "UserID",
+        "default": "1000",
+        "label": "PUID"
       },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
+      {
+        "name": "PGID",
+        "description": "GroupID",
+        "default": "1000",
+        "label": "PGID"
+      },
+      {
+        "name": "TZ",
+        "description": "Specify a timezone to use e.g. Europe/London",
+        "label": "TZ"
       }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "tvheadend",
-    "description": "Tvheadend is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT&gt;IP and HDHomeRun as input sources.\r\nTvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT&gt;IP streaming.\r\nMultiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).",
-    "logo": "http://i.imgur.com/zGSUAT4.png",
-    "image": "linuxserver/tvheadend:latest",
-    "category": ["Video", "Other"],
-    "platform": "linux",
-    "ports": [  
-      "9981/tcp",
-      "9982/tcp"
     ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/recordings"}
-    ],
-    "env": [  
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "duplicati",
-    "description": "Free backup software to store encrypted backups online, Duplicati works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon Cloud Drive and S3, Google Drive, box.com, Mega, hubiC and many others.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/duplicati-icon.png",
-    "image": "linuxserver/duplicati:latest",
-    "category": ["Backup:", "Cloud", "Other", "Productivity", "Tools"],
-    "platform": "linux",
-    "ports": [  
-      "8200/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/tmp"},
-      {"container": "/backups"},
-      {"container": "/source"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "resilio-sync",
-    "description": "Resilio Sync (formerly BitTorrent Sync) uses the BitTorrent protocol to sync files and folders between all of your devices. There are both free and paid versions, this container supports both.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/resilio.png",
-    "image": "linuxserver/resilio-sync:latest",
-    "category": ["Backup:", "Cloud", "Other", "Tools"],
-    "platform": "linux",
-    "ports": [  
-      "8888/tcp",
-      "55555/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/sync"},
-      {"container": "/downloads"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "radarr",
-    "description": "Radarr - A fork of Sonarr to work with movies \u00e0 la Couchpotato.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/radarr.png",
-    "image": "linuxserver/radarr:latest",
-    "category": ["Downloaders", "Video"],
-    "platform": "linux",
-    "ports": [  
-      "7878/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"},
-      {"container": "/movies"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "piwigo",
-    "description": "Piwigo is photo gallery software for the web, built by an active community of users and developers.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/piwigo-icon.png",
-    "image": "linuxserver/piwigo:latest",
-    "category": ["Photos"],
-    "platform": "linux",
-    "ports": [  
-      "80/tcp"
-    ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "ubooquity",
-    "description": "Ubooquity is a free, lightweight and easy-to-use home server for your comics and ebooks. Use it to access your files from anywhere, with a tablet, an e-reader, a phone or a computer.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/ubooquity-icon.png",
-    "image": "linuxserver/ubooquity:latest",
-    "category": ["Cloud", "Books"],
-    "platform": "linux",
-    "ports": [  
-      "2202/tcp",
-      "2203/tcp"
-    ],
-    "volumes": [  
-      {"container": "/books"},
-      {"container": "/comics"},
-      {"container": "/config"}
-    ],
-    "env": [  
-      {  
-        "name":"MAXMEM",
-        "label":"MAXMEM",
-        "set":"512"
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "lazylibrarian",
-    "description": "LazyLibrarian is a program to follow authors and grab metadata for all your digital reading needs.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/lazylibrarian-icon.png",
-    "image": "linuxserver/lazylibrarian:latest",
-    "category": ["Books"],
-    "platform": "linux",
-    "ports": [  
-      "5299/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"},
-      {"container": "/books"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "airsonic",
-    "description": "Airsonic is a free, web-based media streamer, providing ubiqutious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/airsonic-logo.png",
-    "image": "linuxserver/airsonic:latest",
-    "category": ["Music"],
-    "platform": "linux",
-    "ports": [  
-      "4040/tcp"
-    ],
-    "volumes": [  
-      {"container": "/music"},
-      {"container": "/playlists"},
-      {"container": "/podcasts"},
-      {"container": "/media"},
-      {"container": "/config"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"CONTEXT_PATH",
-        "label":"CONTEXT_PATH",
-        "set":"airsonic"
-      },
-      {  
-        "name":"JAVA_OPTS",
-        "label":"JAVA_OPTS",
-        "set":"-Xms256m -Xmx512m"
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "letsencrypt",
-    "description": "This container sets up an Nginx webserver and reverse proxy with php support and a built-in letsencrypt client that automates free SSL server certificate generation and renewal processes. It also contains fail2ban for intrusion prevention.\r\n  \r\n  Before running this container, make sure that the url and subdomains are properly forwarded to this container's host.\r\n  \r\n  - Port 443 on the internet side of the router should be forwarded to this container's port 443.\r\n  - If you need a dynamic dns provider, you can use the free provider duckdns.org where the url will be yoursubdomain.duckdns.org and the subdomains    can be www,ftp,cloud\r\n  - The container detects changes to url and subdomains, revokes existing certs and generates new ones during start. \r\n  - It also detects changes to the DHLEVEL parameter and replaces the dhparams file.\r\n  \r\n  - If you'd like to password protect your sites, you can use htpasswd. Run the following command on your host to generate the htpasswd file docker exec -it letsencrypt htpasswd -c /config/nginx/.htpasswd &lt;username&gt;",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/letsencrypt.png",
-    "image": "linuxserver/letsencrypt:latest",
-    "category": ["Tools", "Web"],
-    "platform": "linux",
-    "ports": [  
-      "80/tcp",
-      "443/tcp"
-    ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"EMAIL",
-        "label":"EMAIL",
-        "set":"-Xms256m -Xmx512m"
-      },
-      {  
-        "name":"URL",
-        "label":"URL",
-        "set":"-Xms256m -Xmx512m"
-      },
-      {  
-        "name":"SUBDOMAINS",
-        "label":"SUBDOMAINS",
-        "set":"www,"
-      },
-      {  
-        "name":"ONLY_SUBDOMAINS",
-        "label":"ONLY_SUBDOMAINS",
-        "set":"false"
-      },
-      {  
-        "name":"DHLEVEL",
-        "label":"DHLEVEL",
-        "set":"2048"
-      },
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"VALIDATION",
-        "label":"VALIDATION",
-        "set":"http"
-      },
-      {  
-        "name":"DNSPLUGIN",
-        "label":"DNSPLUGIN",
-        "set":"http"
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "sonarr",
-    "description": "Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/sonarr-icon.png",
-    "image": "linuxserver/sonarr:latest",
-    "category": ["Downloaders","Video"],
-    "platform": "linux",
-    "ports": [  
-      "8989/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/dev/rtc"},
-      {"container": "/tv"},
-      {"container": "/downloads"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "tautulli",
-    "description": "Tautulli is a 3rd party application that you can run along side your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.[br][br]\r\n  [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]\r\n  [b]8181[/b] The webui for Tautulli's webui [br]\r\n  [b]/config[/b] Storing Configuration and the Tautulli database[br]\r\n[b]/logs[/b] Map to you plex logs (required for IP logging)[br]\r\n\r\n",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/tautulli-icon.png",
-    "image": "linuxserver/tautulli:latest",
-    "category": ["Other", "Tools"],
-    "platform": "linux",
-    "ports": [  
-      "8181/tcp"
-    ],
-    "volumes": [  
-      {"container": "/logs"},
-      {"container": "/config"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "rutorrent",
-    "description": "Popular torrent client with a webui for ease of use.",
-    "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/rutorrent-icon.png",
-    "image": "linuxserver/rutorrent:latest",
-    "category": ["Downloaders"],
-    "platform": "linux",
-    "ports": [  
-      "80/tcp",
-      "51413/tcp",
-      "6881/udp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/downloads"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "nextcloud",
-    "description": "Nextcloud is an open source, self-hosted file sync and communication app platform. Access and sync your files, contacts, calendars and communicate and collaborate across your devices. You decide what happens with your data, where it is and who can access it!",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/nextcloud-icon.png",
-    "image": "linuxserver/nextcloud:latest",
-    "category": ["Cloud", "Productivity", "Tools", "Other", "Web"],
-    "platform": "linux",
-    "ports": [  
-      "443/tcp"
-    ],
-    "volumes": [  
-      {"container": "/config"},
-      {"container": "/data"}
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "minisatip",
-    "description": "Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards.\n\n  The application is designed to stream the requested data to multiple clients (even with one dvb card) at the same time while opening different pids.\n  ",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/minisatip-icon.png",
-    "image": "linuxserver/minisatip:latest",
-    "category": ["Video", "Other", "Tools"],
-    "platform": "linux",
-    "ports": [  
-      "8875/tcp",
-      "554/tcp",
-      "1900/udp"
-    ],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "Organizr v2",
-    "description": "Organizr allows you to setup Tabs that will be loaded all in one webpage. You can then work on your server with ease.",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/organizr-icon.png",
-    "image": "organizrtools/organizr-v2:latest",
-    "category": ["Other", "Tools"],
-    "platform": "linux",
-    "ports": [  
-      "80/tcp"
-    ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
-  },
-  {  
-    "type": 1,
-    "title": "Chevereto",
-    "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version..",
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/Chevereto.png",
-    "image": "nmtan/chevereto:latest",
-    "category": ["Other", "Tools", "Photo"],
-    "platform": "linux",
-    "ports": [  
-      "80/tcp"
-    ],
-    "volumes": [{"container": "/var/www/html/images"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      },
-      {  
-        "name":"CHEVERETO_DB_HOST",
-        "label":"CHEVERETO_DB_HOST",
-        "set":""
-      },
-      {  
-        "name":"CHEVERETO_DB_USERNAME",
-        "label":"CHEVERETO_DB_USERNAME",
-        "set":""
-      },
-      {  
-        "name":"CHEVERETO_DB_PASSWORD",
-        "label":"CHEVERETO_DB_PASSWORD",
-        "set":""
-      },
-      {  
-        "name":"CHEVERETO_DB_NAME",
-        "label":"CHEVERETO_DB_NAME",
-        "set":""
-      },
-      {  
-        "name":"CHEVERETO_DB_PREFIX",
-        "label":"CHEVERETO_DB_PREFIX",
-        "set":""
-      }
+    "categories": [
+      "Messenger"
     ]
   }
 ]

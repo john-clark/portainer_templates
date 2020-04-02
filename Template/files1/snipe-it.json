@@ -1,0 +1,66 @@
+{
+  "type": 2,
+  "title": "Snipe-it",
+  "name": "Snipe-it",
+  "description": "Snipe-it makes asset management easy. It was built by people solving real-world IT and asset management problems, and a solid UX has always been a top priority. Straightforward design and bulk actions mean getting things done faster.",
+  "categories": [
+    "Management",
+    "Tools",
+    "Other"
+  ],
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/snipe-it.png",
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "APP_URL",
+      "description": "Hostname or IP and port if applicable IE ip or hostname:8080",
+      "label": "APP_URL"
+    },
+    {
+      "name": "MYSQL_PORT_3306_TCP_ADDR",
+      "description": "Mysql hostname or IP to use",
+      "label": "MYSQL_PORT_3306_TCP_ADDR"
+    },
+    {
+      "name": "MYSQL_PORT_3306_TCP_PORT",
+      "description": "Mysql port to use",
+      "label": "MYSQL_PORT_3306_TCP_PORT"
+    },
+    {
+      "name": "MYSQL_DATABASE",
+      "description": "Mysql database to use",
+      "label": "MYSQL_DATABASE"
+    },
+    {
+      "name": "MYSQL_USER",
+      "description": "Mysql user to use",
+      "label": "MYSQL_USER"
+    },
+    {
+      "name": "MYSQL_PASSWORD",
+      "description": "Mysql password to use",
+      "label": "MYSQL_PASSWORD"
+    }
+  ],
+  "repository": {
+    "stackfile": "stacks/snipe-it/docker-stack.yaml",
+    "url": "https://github.com/frdmir/portainer_templates"
+  }
+}

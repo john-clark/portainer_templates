@@ -1,0 +1,56 @@
+{
+  "type": 1,
+  "title": "Ubooquity",
+  "name": "Ubooquity",
+  "description": "Ubooquity is a free, lightweight and easy-to-use home server for your comics and ebooks. Use it to access your files from anywhere, with a tablet, an e-reader, a phone or a computer.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/ubooquity-icon.png",
+  "image": "linuxserver/ubooquity:latest",
+  "ports": [
+    "2202/tcp",
+    "2203/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/books"
+    },
+    {
+      "container": "/comics"
+    },
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/files"
+    }
+  ],
+  "env": [
+    {
+      "name": "MAXMEM",
+      "description": "To set the maximum memory. ( ex: set '1024' for 1GB )",
+      "default": "512",
+      "label": "MAXMEM"
+    },
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Cloud",
+    "Books"
+  ]
+}

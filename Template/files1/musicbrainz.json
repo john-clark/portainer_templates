@@ -1,0 +1,57 @@
+{
+  "type": 1,
+  "title": "Musicbrainz",
+  "name": "Musicbrainz",
+  "description": " Musicbrainz is an open music encyclopedia that collects music metadata and makes it available to the public.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/musicbrainz-icon.png",
+  "image": "linuxserver/musicbrainz:latest",
+  "ports": [
+    "5000/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/data"
+    }
+  ],
+  "env": [
+    {
+      "name": "BRAINZCODE",
+      "description": "Enter musicbrainz code",
+      "label": "BRAINZCODE"
+    },
+    {
+      "name": "WEBADDRESS",
+      "description": "Set ip for host to allow css to render properly, DO NOT ENTER PORT NUMBER.",
+      "label": "WEBADDRESS"
+    },
+    {
+      "name": "NPROC",
+      "description": "To set number of processes, defaults to 5 if unset. (optional)",
+      "label": "NPROC"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Music"
+  ]
+}

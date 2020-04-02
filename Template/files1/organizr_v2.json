@@ -1,0 +1,33 @@
+{
+  "type": 1,
+  "title": "Organizr v2",
+  "name": "Organizr v2",
+  "description": "Organizr allows you to setup Tabs that will be loaded all in one webpage. You can then work on your server with ease.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/organizr-icon.png",
+  "image": "organizrtools/organizr-v2:latest",
+  "ports": [
+    "80/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    }
+  ],
+  "categories": [
+    "Other",
+    "Tools"
+  ]
+}

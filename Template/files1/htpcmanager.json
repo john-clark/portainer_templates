@@ -1,0 +1,32 @@
+{
+  "type": 1,
+  "title": "Htpcmanager",
+  "name": "Htpcmanager",
+  "description": "Htpcmanager, a front end for many htpc related applications. Hellowlol version.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/htpcmanager-icon.png",
+  "image": "linuxserver/htpcmanager:latest",
+  "ports": [
+    "8085/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    },
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    }
+  ],
+  "categories": [
+    "Other"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "type": 1,
+  "title": "Minetest",
+  "name": "Minetest",
+  "description": "Minetest (server) is a near-infinite-world block sandbox game and a game engine, inspired by InfiniMiner, Minecraft, and the like.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/minetest-icon.png",
+  "image": "linuxserver/minetest:latest",
+  "ports": [
+    "30000/udp"
+  ],
+  "volumes": [
+    {
+      "container": "/config/.minetest"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "CLI_ARGS",
+      "description": "Optionally specify any CLI variables you want to launch the app with (opcional)",
+      "default": "1000",
+      "label": "CLI_ARGS"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Games",
+    "Other"
+  ]
+}

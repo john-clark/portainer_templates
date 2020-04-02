@@ -1,0 +1,41 @@
+{
+  "type": 1,
+  "title": "sonarr beta",
+  "description": "Sonar preview version",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/sonarr-icon.png",
+  "image": "linuxserver/sonarr:preview",
+  "category": [
+    "Downloaders",
+    "Video"
+  ],
+  "platform": "linux",
+  "ports": [
+    "8989/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/dev/rtc"
+    },
+    {
+      "container": "/tv"
+    },
+    {
+      "container": "/downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

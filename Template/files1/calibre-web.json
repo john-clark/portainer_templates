@@ -1,0 +1,43 @@
+{
+  "type": 1,
+  "title": "Calibre-web",
+  "name": "Calibre-web",
+  "description": "Calibre Web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/calibre-web-icon.png",
+  "image": "linuxserver/calibre-web:latest",
+  "ports": [
+    "8083/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/books"
+    },
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID",
+      "default": "1000"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Cloud",
+    "Books"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "type": 1,
+  "title": "Cops",
+  "name": "Cops",
+  "description": "COPS links to your Calibre library database and allows downloading and emailing of books directly from a web browser and provides a OPDS feed to connect to your devices.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/cops-icon.png",
+  "image": "linuxserver/cops:latest",
+  "ports": [
+    "80/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/books"
+    },
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    },
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    }
+  ],
+  "categories": [
+    "Cloud",
+    "Books"
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "type": 2,
+  "title": "Diskover",
+  "name": "Diskover",
+  "description": "Diskover is a file system crawler and disk space usage software that uses Elasticsearch to index and manage data across heterogeneous storage systems.",
+  "categories": [
+    "Cloud",
+    "File-System",
+    "Other"
+  ],
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/diskover.png",
+  "ports": [
+    "80/tcp",
+    "9181/tcp",
+    "9999/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/data"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    },
+    {
+      "name": "REDIS_HOST",
+      "description": "Redis host (optional",
+      "label": "REDIS_HOST"
+    },
+    {
+      "name": "REDIS_PORT",
+      "description": "Redis port (optional",
+      "label": "REDIS_PORT"
+    },
+    {
+      "name": "ES_HOST",
+      "description": "ElasticSearch host (optional)",
+      "label": "ES_HOST"
+    },
+    {
+      "name": "ES_PORT",
+      "description": "ElasticSearch port (optional)",
+      "label": "ES_PORT"
+    },
+    {
+      "name": "ES_USER",
+      "description": "ElasticSearch username (optional)",
+      "label": "ES_USER"
+    },
+    {
+      "name": "ES_PASS",
+      "description": "ElasticSearch password (optional)",
+      "label": "ES_PASS"
+    },
+    {
+      "name": "INDEX_NAME",
+      "description": "Index name prefix (optional)",
+      "label": "INDEX_NAME"
+    },
+    {
+      "name": "DISKOVER_OPTS",
+      "description": "Optional arguments to pass to the diskover crawler (optional)",
+      "label": "DISKOVER_OPTS"
+    },
+    {
+      "name": "WORKER_OPTS",
+      "description": "Optional argumens to pass to the diskover bots launcher (optional)",
+      "label": "WORKER_OPTS"
+    },
+    {
+      "name": "RUN_ON_START",
+      "description": "Initiate a crawl every time the container is started (optional)",
+      "label": "RUN_ON_START"
+    },
+    {
+      "name": "USE_CRON",
+      "description": "Run a crawl on as a cron job (optional)",
+      "default": "true",
+      "label": "USE_CRON"
+    }
+  ],
+  "repository": {
+    "stackfile": "stacks/diskover/docker-stack.yml",
+    "url": "https://github.com/frdmir/portainer_templates"
+  }
+}

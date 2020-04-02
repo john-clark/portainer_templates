@@ -1,0 +1,36 @@
+{
+  "type": 1,
+  "title": "deluge-135",
+  "description": "Older Version of deluge",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/deluge-icon.png",
+  "image": "linuxserver/deluge:5b398f77-ls22",
+  "category": [
+    "Downloaders"
+  ],
+  "platform": "linux",
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    },
+    {
+      "name": "UMASK_SET",
+      "label": "UMASK_SET",
+      "set": "000"
+    }
+  ]
+}

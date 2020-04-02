@@ -1,0 +1,43 @@
+{
+  "type": 1,
+  "title": "Photoshow",
+  "name": "Photoshow",
+  "description": "Photoshow is gallery software at its easiest, it doesn't even require a database.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/photoshow-icon.png",
+  "image": "linuxserver/photoshow:latest",
+  "ports": [
+    "80/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/Pictures"
+    },
+    {
+      "container": "/Thumbs"
+    },
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Photos"
+  ]
+}

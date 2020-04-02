@@ -1,0 +1,51 @@
+{
+  "type": 1,
+  "title": "Code-server",
+  "name": "Code-server",
+  "description": "Code-server is VS Code running on a remote server, accessible through the browser.",
+  "note": "Code on your Chromebook, tablet, and laptop with a consistent dev environment. If you have a Windows or Mac workstation, more easily develop for Linux. Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. Preserve battery life when you're on the go. All intensive computation runs on your server. You're no longer running excess instances of Chrome.",
+  "categories": [
+    "Tools",
+    "Other"
+  ],
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/code-server.png",
+  "image": "linuxserver/code-server:latest",
+  "ports": [
+    "8443/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    },
+    {
+      "name": "PASSWORD",
+      "description": "Web gui password, if not provided, there will be no auth. (optional)",
+      "label": "PASSWORD"
+    },
+    {
+      "name": "SUDO_PASSWORD",
+      "description": "If this variable is set, user will have sudo access in the code-server terminal with the specified password. (optional)",
+      "label": "SUDO_PASSWORD"
+    }
+  ]
+}

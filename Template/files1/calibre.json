@@ -1,0 +1,33 @@
+{
+  "type": 1,
+  "title": "calibre",
+  "description": "Calibre is a powerful and easy to use e-book manager. Users say it’s outstanding and a must-have. It’ll allow you to do nearly everything and it takes things a step beyond normal e-book software. It’s also completely free and open source and great for both casual users and computer experts.",
+  "logo": "https://manual.calibre-ebook.com/_static/logo.png",
+  "image": "linuxserver/calibre:latest",
+  "category": [
+    "Cloud",
+    "Books"
+  ],
+  "platform": "linux",
+  "ports": [
+    "8080/tcp",
+    "8081/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

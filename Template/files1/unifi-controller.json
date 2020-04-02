@@ -1,0 +1,44 @@
+{
+  "type": 1,
+  "title": "Unifi-controller",
+  "name": "Unifi-controller",
+  "description": "The Unifi-controller Controller software is a powerful, enterprise wireless software engine ideal for high-density client deployments requiring low latency and high uptime performance.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/unifi.png",
+  "image": "linuxserver/unifi-controller:latest",
+  "ports": [
+    "3478/udp",
+    "10001/udp",
+    "8080/tcp",
+    "8081/tcp",
+    "8443/tcp",
+    "8843/tcp",
+    "8880/tcp",
+    "6789/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    },
+    {
+      "name": "MEM_LIMIT",
+      "label": "opcional"
+    }
+  ],
+  "categories": [
+    "Management",
+    "Tools"
+  ]
+}

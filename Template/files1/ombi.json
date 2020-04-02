@@ -1,0 +1,47 @@
+{
+  "type": 1,
+  "title": "Ombi",
+  "name": "Ombi",
+  "description": "Ombi allows you to host your own Plex Request and user management system.",
+  "note": "If you are sharing your Plex server with other users, allow them to request new content using an easy to manage interface! Manage all your requests for Movies and TV with ease, leave notes for the user and get notification when a user requests something. Allow your users to post issues against their requests so you know there is a problem with the audio etc. Even automatically send them weekly newsletters of new content that has been added to your Plex server!",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/ombi.png",
+  "image": "linuxserver/ombi:latest",
+  "ports": [
+    "3579/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    },
+    {
+      "name": "BASE_URL",
+      "description": "Subfolder can optionally be defined as an env variable for reverse proxies. Keep in mind that once this value is defined, the gui setting for base url no longer works. To use the gui setting, remove this env variable. (opcional)",
+      "label": "BASE_URL"
+    }
+  ],
+  "categories": [
+    "Downloaders",
+    "Video",
+    "Tools"
+  ]
+}

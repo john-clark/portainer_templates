@@ -1,0 +1,58 @@
+{
+  "type": 1,
+  "title": "Jellyfin",
+  "name": "Jellyfin",
+  "description": "Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps.",
+  "note": "Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps.",
+  "categories": [
+    "Media",
+    "Video",
+    "TV"
+  ],
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/jellyfin.png",
+  "image": "linuxserver/jellyfin:latest",
+  "ports": [
+    "8096/tcp",
+    "8920/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/data/tvshows"
+    },
+    {
+      "container": "/data/movies"
+    },
+    {
+      "container": "/transcode"
+    }
+  ],
+  "env": [
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    },
+    {
+      "name": "UMASK_SET",
+      "description": "for umask setting of Emby, default if left unset is 022.",
+      "default": "022",
+      "label": "UMASK_SET"
+    }
+  ]
+}

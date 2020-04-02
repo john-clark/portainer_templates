@@ -1,0 +1,39 @@
+{
+  "type": 1,
+  "title": "Medusa",
+  "name": "Medusa",
+  "description": "Medusa, automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/medusa-icon.png",
+  "image": "linuxserver/medusa:latest",
+  "ports": [
+    "8081/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/tv"
+    },
+    {
+      "container": "/downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    }
+  ],
+  "categories": [
+    "Downloaders",
+    "Video"
+  ]
+}

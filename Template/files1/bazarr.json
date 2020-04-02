@@ -1,0 +1,53 @@
+{
+  "type": 1,
+  "title": "Bazarr",
+  "name": "Bazarr",
+  "description": "Bazarr is a companion application to Sonarr and Radarr. It can manage and download subtitles based on your requirements. You define your preferences by TV show or movie and Bazarr takes care of everything for you.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/bazarr.png",
+  "image": "linuxserver/bazarr:latest",
+  "ports": [
+    "6767/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/tv"
+    },
+    {
+      "container": "/movies"
+    }
+  ],
+  "env": [
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    },
+    {
+      "name": "UMASK_SET",
+      "description": "Control permissions of files and directories created by Bazarr",
+      "default": "022",
+      "label": "UMASK_SET"
+    }
+  ],
+  "categories": [
+    "Movie",
+    "Video",
+    "TV"
+  ]
+}

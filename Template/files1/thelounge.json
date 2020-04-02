@@ -1,0 +1,39 @@
+{
+  "type": 1,
+  "title": "Thelounge",
+  "name": "Thelounge",
+  "description": "Thelounge (a fork of shoutIRC) is a web IRC client that you host on your own server.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/linuxserver/community-templates/master/lsiocommunity/img/shout-icon.png",
+  "image": "linuxserver/thelounge:latest",
+  "ports": [
+    "9000/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Messenger"
+  ]
+}
