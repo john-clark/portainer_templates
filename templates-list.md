@@ -1,83 +1,150 @@
-### Qballjos Templates
+### from https://qballjos.github.io/portainer_templates/
 
-*	airsonic
-*	calibre-web
-*	cardigann
-*	Chevereto
-*	cops
-*	couchpotato
-*	davos
-*	deluge
-*	duplicati
-*	freshrss
-*	headphones
-*	hydra
-*	hydra2
-*	lazylibrarian
-*	letsencrypt
-*	lidarr
-*	lychee
-*	mariadb
-*	mcmyadmin2
-*	minetest
-*	minisatip
-*	mylar
-*	nextcloud
-*	nginx
-*	nzbget
-*	ombi
-*	openvpn-as
-*	Organizr v2
-*	piwigo
-*	plex
-*	plexrequests
-*	projectsend
-*	qbittorrent
-*	radarr
-*	resilio-sync
-*	rutorrent
-*	sonarr
-*	tautulli
-*	thelounge
-*	tt-rss
-*	tvheadend
-*	ubooquity
-*	unifi
-*	znc
+* htpcmanager (based on `linuxserver/htpcmanager:latest`)
+* jackett (based on `linuxserver/jackett:latest`)
+* booksonic (based on `linuxserver/booksonic:latest`)
+* smokeping (based on `linuxserver/smokeping:latest`)
+* duckdns (based on `linuxserver/duckdns:latest`)
+* webgrabplus (based on `linuxserver/webgrabplus:latest`)
+* domoticz (based on `linuxserver/domoticz:latest`)
+* transmission (based on `linuxserver/transmisson:latest`)
+* libresonic (based on `linuxserver/libresonic:latest`)
+* sickrage (based on `linuxserver/sickrage:latest`)
+* musicbrainz (based on `linuxserver/musicbrainz:latest`)
+* quassel-core (based on `linuxserver/quassel-core:latest`)
+* photoshow (based on `linuxserver/photoshow:latest`)
+* daapd (based on `linuxserver/daapd:latest`)
+* gazee (based on `linuxserver/gazee:latest`)
+* codiad (based on `linuxserver/codiad:latest`)
+* oscam (based on `linuxserver/oscam:latest`)
+* kodi-headless (based on `linuxserver/kodi-headless:latest`)
+* pydio (based on `linuxserver/pydio:latest`)
+* sabnzbd (based on `linuxserver/sabnzbd:latest`)
+* medusa (based on `linuxserver/medusa:latest`)
+* heimdall (based on `linuxserver/heimdall:latest`)
+* syncthing (based on `linuxserver/syncthing:latest`)
+* muximux (based on `linuxserver/muximux:latest`)
+* beets (based on `linuxserver/beets:latest`)
+* plexrequests (based on `linuxserver/plexrequests:latest`) -
+* mariadb (based on `linuxserver/mariadb:latest`)
+* znc (based on `linuxserver/znc:latest`)
+* cops (based on `linuxserver/cops:latest`)
+* thelounge (based on `linuxserver/thelounge:latest`)
+* nzbget (based on `linuxserver/nzbget:latest`)
+* ombi (based on `linuxserver/ombi:latest`)
+* lychee (based on `linuxserver/lychee:latest`)
+* deluge (based on `linuxserver/deluge:latest`)
+* nginx (based on `linuxserver/nginx:latest`)
+* lidarr (based on `linuxserver/lidarr:latest`)
+* cardigann (based on `linuxserver/cardigann:latest`)
+* unifi (based on `linuxserver/unifi:latest`)
+* calibre-web (based on `linuxserver/calibre-web:latest`)
+* plex (based on `linuxserver/plex:latest`) - 
+* hydra (based on `linuxserver/hydra:latest`)
+* headphones (based on `linuxserver/headphones:latest`)
+* qbittorrent (based on `linuxserver/qbittorrent:latest`)
+* couchpotato (based on `linuxserver/couchpotato:latest`)
+* davos (based on `linuxserver/davos:latest`)
+* tt-rss (based on `linuxserver/tt-rss:latest`) - 
+* freshrss (based on `linuxserver/freshrss:latest`)
+* mcmyadmin2 (based on `linuxserver/mcmyadmin2:latest`)
+* openvpn-as (based on `linuxserver/openvpn-as:latest`)
+* mylar (based on `linuxserver/mylar:latest`)
+* hydra2 (based on `linuxserver/hydra2:latest`)
+* projectsend (based on `linuxserver/projectsend:latest`) -
+* minetest (based on `linuxserver/minetest:latest`)
+* tvheadend (based on `linuxserver/tvheadend:latest`)
+* duplicati (based on `linuxserver/duplicati:latest`)
+* resilio-sync (based on `linuxserver/resilio-sync:latest`)
+* radarr (based on `linuxserver/radarr:latest`)
+* piwigo (based on `linuxserver/piwigo:latest`)
+* ubooquity (based on `linuxserver/ubooquity:latest`)
+* lazylibrarian (based on `linuxserver/lazylibrarian:latest`)
+* airsonic (based on `linuxserver/airsonic:latest`)
+* letsencrypt (based on `linuxserver/letsencrypt:latest`)
+* sonarr (based on `linuxserver/sonarr:latest`)
+* tautulli (based on `linuxserver/tautulli:latest`)
+* rutorrent (based on `linuxserver/rutorrent:latest`)
+* nextcloud (based on `linuxserver/nextcloud:latest`)
+* minisatip (based on `linuxserver/minisatip:latest`)
+* organizr-v2 (based on `organizrtools/organizr-v2:latest`)
+* Chevereto (based on `nmtan/chevereto:latest`)
 
-### Other templates - to be added
+## from https://fleet.linuxserver.io/ linuxserver
 
-*	adguard
-*	beets
-*	boinc
-*	Clarkson
-*	DDclient
-*	Diskover
-*	domoticz
-*	duckdns
-*	emby
-*	EmbyStat
-*	foldingathome
-*	Grocy
-*	heimdall
-*	jellyfin
-*	Mstream
-*	muximux
-*	netdata
-*	ngIRCd
-*	oscam
-*	photoshow
-*	pi-hole
-*	portainer
-*	quassel-core
-*	Quassel-web
-*	SickGear
-*	Snipe-it
-* transmission
-*	updater
-*	webgrabplus
+* apache (based on `linuxserver/apache :latest`)
+* bazarr (based on `linuxserver/bazarr:latest`)
+* calibre (based on `linuxserver/calibre:latest`)
+* clarkson (based on `linuxserver/clarkson:latest`)
+* cloud9 (based on `linuxserver/cloud9:latest`)
+* code-server (based on `linuxserver/code-server:latest`)
+* codimd (based on `linuxserver/codimd:latest`)
+* ddclient (based on `linuxserver/ddclient:latest`)
+* dillinger (based on `linuxserver/dillinger:latest`)
+* diskover (based on `linuxserver/diskover:latest`)
+* doc-builder (based on `linuxserver/doc-builder :latest`)
+* dokuwiki (based on `linuxserver/dokuwiki:latest`)
+* emby (based on `linuxserver/emby:latest`)
+* embystat (based on `linuxserver/embystat:latest`)
+* ffmpeg (based on `linuxserver/ffmpeg:latest`)
+* fleet (based on `linuxserver/fleet:latest`)
+* flood (based on `linuxserver/flood :latest`)
+* grocy (based on `linuxserver/grocy:latest`)
+* guacd (based on `linuxserver/guacd:latest`)
+* habridge (based on `linuxserver/habridge:latest`)
+* healthchecks (based on `linuxserver/healthchecks:latest`)
+* jellyfin (based on `linuxserver/jellyfin:latest`)
+* jenkins-builder (based on `linuxserver/jenkins-builder:latest`)
+* kanzi (based on `linuxserver/kanzi:latest`)
+* ldap-auth (based on `linuxserver/ldap-auth:latest`)
+* librespeed (based on `linuxserver/librespeed:latest`)
+* limnoria (based on `linuxserver/limnoria:latest`)
+* mods (based on `linuxserver/mods:latest`)
+* mstream (based on `linuxserver/mstream:latest`)
+* mysql (based on `linuxserver/mysql :latest`)
+* netbootxyz (based on `linuxserver/netbootxyz:latest`)
+* ngircd (based on `linuxserver/ngircd:latest`)
+* nntp2nntp (based on `linuxserver/nntp2nntp:latest`)
+* nzbget (based on `linuxserver/nzbget:latest`)
+* openssh-server (based on `linuxserver/openssh-server:latest`)
+* organizr (based on `linuxserver/organizr:latest`)
+* plexpy (based on `linuxserver/plexpy :latest`)
+* pydio-cells (based on `linuxserver/pydio-cells:latest`)
+* pyload (based on `linuxserver/pyload:latest`)
+* pylon (based on `linuxserver/pylon:latest`)
+* quassel-web (based on `linuxserver/quassel-web:latest`)
+* raneto (based on `linuxserver/raneto:latest`)
+* sickbeard (based on `linuxserver/sickbeard :latest`)
+* sickchill (based on `linuxserver/sickchill:latest`)
+* sickgear (based on `linuxserver/sickgear:latest`)
+* snipe-it (based on `linuxserver/snipe-it:latest`)
+* taisun (based on `linuxserver/taisun:latest`)
+* unifi-controller (based on `linuxserver/unifi-controller:latest`)
+* rdesktop (based on `linuxserver/rdesktop:latest`)
+* boinc (based on `linuxserver/boinc:latest`)
+* foldingathome (based on `linuxserver/foldingathome:latest`)
+* doublecommander (based on `linuxserver/doublecommander:latest`)
+* mysql-workbench (based on `linuxserver/mysql-workbench:latest`)
+* remmina (based on `linuxserver/remmina:latest`)
+* wireguard (based on `linuxserver/wireguard:latest`)
+* wireshark (based on `linuxserver/wireshark:latest`)
 
-## Portainer templates:
+## from https://fleet.linuxserver.io/ lsiobase
+
+* alpine (based on `lsiobase/alpine:latest`)
+* cloud9 (based on `lsiobase/cloud9:latest`)
+* ffmpeg (based on `lsiobase/ffmpeg:latest`)
+* guacgui (based on `lsiobase/guacgui:latest`)
+* gui (based on `lsiobase/gui:latest`)
+* guacgui (based on `lsiobase/guacgui:latest`)
+* java (based on `lsiobase/java:latest`)
+* mono (based on `lsiobase/mono:latest`)
+* python (based on `lsiobase/python:latest`)
+* ubuntu (based on `lsiobase/ubuntu:latest`)
+* rdesktop (based on `lsiobase/rdesktop:latest`)
+* rdesktop-web (based on `lsiobase/rdesktop-web:latest`)
+
+## from https://github.com/portainer/templates
 
 * Docker registry (based on `registry:latest`)
 * Nginx (based on `nginx:latest`)
@@ -103,3 +170,10 @@
 * Redmine (based on `redmine:latest`)
 * Odoo (based on `odoo:latest`)
 * Sematext Docker Agent (based on `sematext/sematext-agent-docker:latest`)
+
+### https://github.com/linuxserver/libreelec-addon-repo
+
+* adguard (based on `adguard/adguardhome:latest`)
+* netdata  (based on `netdata/netdata:latest`)
+* pi-hole (based on `diginc/pi-hole:latest`)
+* portainer (based on `portainer/portainer:latest`)
