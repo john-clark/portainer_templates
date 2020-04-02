@@ -11,7 +11,7 @@ This is a rewriten template that should be working with the latest portainer ver
 ## Installing
 
 Login to your portainer setup. Go to settings -> enable Use external templates -> add the url: 
-https://raw.githubusercontent.com/john-clark/portainer_templates/master/Template/template-out.json
+https://john-clark.github.io/portainer_templates/Template/template-out.json
 
 ## Contributing
 
