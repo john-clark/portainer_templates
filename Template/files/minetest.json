@@ -1,0 +1,31 @@
+{
+  "type": 1,
+  "title": "minetest",
+  "description": "Server version of minetest, a free, open source alternative to minecraft.",
+  "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/minetest-icon.png",
+  "image": "linuxserver/minetest:latest",
+  "category": [
+    "Other"
+  ],
+  "platform": "linux",
+  "ports": [
+    "30000/udp"
+  ],
+  "volumes": [
+    {
+      "container": "/config/.minetest"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "type": 1,
+  "title": "rutorrent",
+  "description": "Popular torrent client with a webui for ease of use.",
+  "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/rutorrent-icon.png",
+  "image": "linuxserver/rutorrent:latest",
+  "category": [
+    "Downloaders"
+  ],
+  "platform": "linux",
+  "ports": [
+    "80/tcp",
+    "51413/tcp",
+    "6881/udp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

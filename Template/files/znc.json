@@ -1,0 +1,31 @@
+{
+  "type": 1,
+  "title": "znc",
+  "description": "ZNC is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC.",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/znc-icon.png",
+  "image": "linuxserver/znc:latest",
+  "category": [
+    "Messenger"
+  ],
+  "platform": "linux",
+  "ports": [
+    "6501/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    },
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    }
+  ]
+}

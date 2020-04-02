@@ -1,0 +1,37 @@
+{
+  "type": 1,
+  "title": "photoshow",
+  "description": "A simple, easy way to turn a photo album into a webgallery",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/photoshow-icon.png",
+  "image": "linuxserver/photoshow:latest",
+  "category": [
+    "Photos"
+  ],
+  "platform": "linux",
+  "ports": [
+    "80/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/Pictures"
+    },
+    {
+      "container": "/Thumbs"
+    },
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

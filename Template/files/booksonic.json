@@ -1,0 +1,43 @@
+{
+  "type": 1,
+  "title": "booksonic",
+  "description": "Booksonic is a server and an app for streaming your audiobooks to any pc or android phone. Most of the functionality is also availiable on other platforms that have apps for subsonic",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/booksonic.png",
+  "image": "linuxserver/booksonic:latest",
+  "category": [
+    "Books",
+    "Other"
+  ],
+  "platform": "linux",
+  "ports": [
+    "4040/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/books"
+    },
+    {
+      "container": "/podcast"
+    },
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    },
+    {
+      "name": "CONTEXT_PATH",
+      "label": "CONTEXT_PATH",
+      "set": "booksonic"
+    }
+  ]
+}

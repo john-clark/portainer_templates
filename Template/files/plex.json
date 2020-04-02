@@ -1,0 +1,35 @@
+{
+  "type": 1,
+  "title": "plex",
+  "description": null,
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/plex-icon.png",
+  "image": "linuxserver/plex:latest",
+  "category": [
+    "Video",
+    "Music",
+    "Photos"
+  ],
+  "platform": "linux",
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    },
+    {
+      "name": "VERSION",
+      "label": "VERSION",
+      "set": "latest"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "type": 1,
+  "title": "nzbget",
+  "description": "NZBGet is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources. It supports all platforms including Windows, Mac, Linux and works on all devices including PC, NAS, WLAN routers and media players",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/nzbget-icon.png",
+  "image": "linuxserver/nzbget:latest",
+  "category": [
+    "Downloaders"
+  ],
+  "platform": "linux",
+  "ports": [
+    "6789/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

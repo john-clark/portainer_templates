@@ -1,0 +1,37 @@
+{
+  "type": 1,
+  "title": "mariadb",
+  "description": "An Enhanced drop in replacement for Mysql",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/mariadb-icon.png",
+  "image": "linuxserver/mariadb:latest",
+  "category": [
+    "Other",
+    "Tools"
+  ],
+  "platform": "linux",
+  "ports": [
+    "3306/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    },
+    {
+      "name": "MYSQL_ROOT_PASSWORD",
+      "label": "MYSQL_ROOT_PASSWORD",
+      "set": ""
+    }
+  ]
+}

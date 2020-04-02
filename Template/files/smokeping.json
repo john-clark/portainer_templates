@@ -1,0 +1,34 @@
+{
+  "type": 1,
+  "title": "smokeping",
+  "description": null,
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/smokeping-icon.png",
+  "image": "linuxserver/smokeping:latest",
+  "category": [
+    "Management"
+  ],
+  "platform": "linux",
+  "ports": [
+    "80/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/data"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

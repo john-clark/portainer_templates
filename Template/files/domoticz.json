@@ -1,0 +1,34 @@
+{
+  "type": 1,
+  "title": "domoticz",
+  "description": "Domoticz is a Home Automation System that lets you monitor and configure various devices like: Lights, Switches, various sensors/meters like Temperature, Rain, Wind, UV, Electra, Gas, Water and much more. Notifications/Alerts can be sent to any mobile device",
+  "logo": "https://github.com/domoticz/domoticz/raw/master/www/images/logo.png",
+  "image": "linuxserver/domoticz:latest",
+  "category": [
+    "HomeAutomation:",
+    "Management"
+  ],
+  "platform": "linux",
+  "ports": [
+    "1443/tcp",
+    "6144/tcp",
+    "8080/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

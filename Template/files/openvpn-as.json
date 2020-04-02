@@ -1,0 +1,38 @@
+{
+  "type": 1,
+  "title": "openvpn-as",
+  "description": "OpenVPN Access Server is a full featured secure network tunneling VPN software solution that integrates OpenVPN server capabilities, enterprise management capabilities, simplified OpenVPN Connect UI, and OpenVPN Client software packages that accommodate Windows, MAC, Linux, Android, and iOS environments.",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/openvpn-as-icon.png",
+  "image": "linuxserver/openvpn-as:latest",
+  "category": [
+    "Other"
+  ],
+  "platform": "linux",
+  "ports": [
+    "943/tcp",
+    "9443/tcp",
+    "1194/udp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "INTERFACE",
+      "label": "INTERFACE",
+      "set": "eth0"
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    },
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    }
+  ]
+}

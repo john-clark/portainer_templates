@@ -1,0 +1,31 @@
+{
+  "type": 1,
+  "title": "codiad",
+  "description": "Codiad is a web-based IDE framework with a small footprint and minimal requirements.\n  ",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/codiad-icon.png",
+  "image": "linuxserver/codiad:latest",
+  "category": [
+    "Productivity"
+  ],
+  "platform": "linux",
+  "ports": [
+    "80/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "type": 1,
+  "title": "mcmyadmin2",
+  "description": null,
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/mcmyadmin-icon.png",
+  "image": "linuxserver/mcmyadmin2:latest",
+  "category": [
+    "Other"
+  ],
+  "platform": "linux",
+  "ports": [
+    "8080/tcp",
+    "25565/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/minecraft"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

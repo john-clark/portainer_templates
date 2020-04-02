@@ -1,0 +1,39 @@
+{
+  "type": 1,
+  "title": "syncthing",
+  "description": null,
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/syncthing-icon.png",
+  "image": "linuxserver/syncthing:latest",
+  "category": [
+    "Backup:",
+    "Cloud",
+    "Other",
+    "Tools"
+  ],
+  "platform": "linux",
+  "ports": [
+    "8384/tcp",
+    "21027/udp",
+    "22000/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/sync"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

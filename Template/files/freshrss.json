@@ -1,0 +1,31 @@
+{
+  "type": 1,
+  "title": "freshrss",
+  "description": "A free, self-hostable rss aggregator…",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/freshrss-icon.png",
+  "image": "linuxserver/freshrss:latest",
+  "category": [
+    "Other"
+  ],
+  "platform": "linux",
+  "ports": [
+    "80/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

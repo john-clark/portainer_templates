@@ -1,0 +1,33 @@
+{
+  "type": 1,
+  "title": "htpcmanager",
+  "description": "Htpcmanager, a front end for many htpc related applications. Hellowlol version.",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/htpcmanager-icon.png",
+  "image": "linuxserver/htpcmanager:latest",
+  "category": [
+    "Video",
+    "Music",
+    "Other"
+  ],
+  "platform": "linux",
+  "ports": [
+    "8085/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    },
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    }
+  ]
+}

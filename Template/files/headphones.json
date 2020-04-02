@@ -1,0 +1,37 @@
+{
+  "type": 1,
+  "title": "headphones",
+  "description": null,
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/headphones-icon.png",
+  "image": "linuxserver/headphones:latest",
+  "category": [
+    "Music"
+  ],
+  "platform": "linux",
+  "ports": [
+    "8181/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    },
+    {
+      "container": "/music"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

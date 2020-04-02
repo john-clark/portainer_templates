@@ -1,0 +1,38 @@
+{
+  "type": 1,
+  "title": "sickrage",
+  "description": "Automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/sickrage-icon.png",
+  "image": "linuxserver/sickrage:latest",
+  "category": [
+    "Downloaders",
+    "Video"
+  ],
+  "platform": "linux",
+  "ports": [
+    "8081/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    },
+    {
+      "container": "/tv"
+    }
+  ],
+  "env": [
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    },
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    }
+  ]
+}

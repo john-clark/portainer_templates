@@ -1,0 +1,32 @@
+{
+  "type": 1,
+  "title": "kodi-headless",
+  "description": "Headless installation of Kodi™ (formerly known as XBMC™), to enable library updates.",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/kodi-icon.png",
+  "image": "linuxserver/kodi-headless:latest",
+  "category": [
+    "Video"
+  ],
+  "platform": "linux",
+  "ports": [
+    "8080/tcp",
+    "9777/udp"
+  ],
+  "volumes": [
+    {
+      "container": "/config/.kodi"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

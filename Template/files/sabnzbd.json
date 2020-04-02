@@ -1,0 +1,38 @@
+{
+  "type": 1,
+  "title": "sabnzbd",
+  "description": "SABnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/sabnzbd-icon.png",
+  "image": "linuxserver/sabnzbd:latest",
+  "category": [
+    "Downloaders"
+  ],
+  "platform": "linux",
+  "ports": [
+    "8080/tcp",
+    "9090/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    },
+    {
+      "container": "/incomplete-downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

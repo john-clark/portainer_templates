@@ -1,0 +1,34 @@
+{
+  "type": 1,
+  "title": "duckdns",
+  "description": "Duck DNS is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.\r\n\r\nFirst, go to duckdns site, register your subdomain and retrieve your token\r\nThen run the docker create command above with your subdomain(s) and token\r\nIt will update your IP with the DuckDNS service every 5 minutes\r\n\r\n",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/duckdns.png",
+  "image": "linuxserver/duckdns:latest",
+  "category": [
+    "DNS",
+    "Tools"
+  ],
+  "platform": "linux",
+  "env": [
+    {
+      "name": "SUBDOMAINS",
+      "label": "SUBDOMAINS",
+      "set": ""
+    },
+    {
+      "name": "TOKEN",
+      "label": "TOKEN",
+      "set": ""
+    },
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

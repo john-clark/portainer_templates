@@ -1,0 +1,36 @@
+{
+  "type": 1,
+  "title": "davos",
+  "description": "davos is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.\r\n\r\n/config : AppData Location\r\n/download : File Download Location",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/davos.png",
+  "image": "linuxserver/davos:latest",
+  "category": [
+    "FTP",
+    "Other",
+    "Tools"
+  ],
+  "platform": "linux",
+  "ports": [
+    "8080/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/download"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "type": 1,
+  "title": "deluge",
+  "description": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client providing: Full Encryption, WebUI, Plugin System, Much more...",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/deluge-icon.png",
+  "image": "linuxserver/deluge:latest",
+  "category": [
+    "Downloaders"
+  ],
+  "platform": "linux",
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    },
+    {
+      "name": "UMASK_SET",
+      "label": "UMASK_SET",
+      "set": "000"
+    }
+  ]
+}

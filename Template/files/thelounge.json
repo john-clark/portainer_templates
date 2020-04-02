@@ -1,0 +1,31 @@
+{
+  "type": 1,
+  "title": "thelounge",
+  "description": "A self-hosted web IRC client",
+  "logo": "https://raw.githubusercontent.com/linuxserver/community-templates/master/lsiocommunity/img/shout-icon.png",
+  "image": "linuxserver/thelounge:latest",
+  "category": [
+    "Messenger"
+  ],
+  "platform": "linux",
+  "ports": [
+    "9000/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "type": 1,
+  "title": "lazylibrarian",
+  "description": "LazyLibrarian is a program to follow authors and grab metadata for all your digital reading needs.",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/lazylibrarian-icon.png",
+  "image": "linuxserver/lazylibrarian:latest",
+  "category": [
+    "Books"
+  ],
+  "platform": "linux",
+  "ports": [
+    "5299/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    },
+    {
+      "container": "/books"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}
