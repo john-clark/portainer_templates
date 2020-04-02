@@ -1,0 +1,49 @@
+{
+  "type": 1,
+  "title": "Libresonic",
+  "name": "Libresonic",
+  "description": "### THIS IMAGE IS DEPRECATED. PLEASE USE AIRSONIC ### - Libresonic is a free, web-based media streamer, providing ubiqutious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room./music - Location of music./media - Location of other media./podcasts - Location of podcasts./playlists - Location for playlists storage.CONTEXT_PATH for setting url-base in reverse proxy setups - (optional)Default user/pass is admin/admin",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/libresonic.png",
+  "image": "linuxserver/libresonic:latest",
+  "ports": [
+    "4040/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/music"
+    },
+    {
+      "container": "/playlists"
+    },
+    {
+      "container": "/podcasts"
+    },
+    {
+      "container": "/media"
+    },
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "CONTEXT_PATH",
+      "label": "CONTEXT_PATH"
+    },
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    }
+  ],
+  "categories": [
+    "Music",
+    "Deprecated"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": 1,
+  "title": "radarr preview",
+  "description": "Radarr - A fork of Sonarr to work with movies à la Couchpotato.",
+  "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/radarr.png",
+  "image": "linuxserver/radarr:preview",
+  "category": [
+    "Downloaders",
+    "Video"
+  ],
+  "platform": "linux",
+  "ports": [
+    "7878/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    },
+    {
+      "container": "/movies"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID",
+      "set": ""
+    },
+    {
+      "name": "PGID",
+      "label": "PGID",
+      "set": ""
+    }
+  ]
+}

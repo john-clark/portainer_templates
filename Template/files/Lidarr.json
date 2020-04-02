@@ -1,0 +1,39 @@
+{
+  "type": 1,
+  "title": "Lidarr",
+  "name": "Lidarr",
+  "description": "Lidarr is a music collection manager for Usenet and BitTorrent users.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/lidarr.png",
+  "image": "linuxserver/lidarr:latest",
+  "ports": [
+    "8686/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    },
+    {
+      "container": "/music"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    }
+  ],
+  "categories": [
+    "Downloaders",
+    "Music"
+  ]
+}

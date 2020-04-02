@@ -1,0 +1,38 @@
+{
+  "type": 1,
+  "title": "Gazee",
+  "name": "Gazee",
+  "description": "### THIS IMAGE IS DEPRECATED ### A WebApp Comic Reader for your favorite digital comics. Reach and read your comic library from any web connected device with a modern web browser",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/gazee-logo.png",
+  "image": "linuxserver/gazee:latest",
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/comics"
+    },
+    {
+      "container": "/mylar"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    }
+  ],
+  "categories": [
+    "Web",
+    "Books",
+    "Tools",
+    "Deprecated"
+  ]
+}

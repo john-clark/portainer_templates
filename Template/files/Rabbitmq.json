@@ -1,0 +1,21 @@
+{
+  "type": 1,
+  "title": "Rabbitmq",
+  "name": "Rabbitmq",
+  "description": "Highly reliable enterprise messaging system",
+  "categories": [
+    "Messenger"
+  ],
+  "platform": "linux",
+  "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/rabbitmq.png",
+  "image": "rabbitmq:latest",
+  "ports": [
+    "5671/tcp",
+    "5672/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/var/lib/rabbitmq"
+    }
+  ]
+}

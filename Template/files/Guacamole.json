@@ -1,0 +1,15 @@
+{
+  "type": 1,
+  "title": "Guacamole",
+  "name": "Guacamole",
+  "description": "Apache Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH. This container is only the backend server component needed to use The official or 3rd party HTML5 frontends.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/guacd.png",
+  "image": "linuxserver/guacd:latest",
+  "ports": [
+    "4822:4822"
+  ],
+  "categories": [
+    "Other"
+  ]
+}

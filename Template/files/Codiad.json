@@ -1,0 +1,37 @@
+{
+  "type": 1,
+  "title": "Codiad",
+  "name": "Codiad",
+  "description": "### THIS IMAGE IS DEPRECATED. PLEASE MIGRATE TO CLOUD9 IF POSSIBLE ### Codiad is a web-based IDE framework with a small footprint and minimal requirements. We have added a few plugins. More can be added in the marketplace in the WebUI.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/codiad-icon.png",
+  "image": "linuxserver/codiad:latest",
+  "ports": [
+    "80/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    },
+    {
+      "name": "TZ",
+      "label": "Specify a timezone to use EG Europe/London"
+    }
+  ],
+  "categories": [
+    "Productivity",
+    "Deprecated"
+  ]
+}

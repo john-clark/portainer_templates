@@ -1,0 +1,24 @@
+{
+  "type": 1,
+  "title": "Taisun",
+  "name": "Taisun",
+  "description": "Taisun is an application for a Docker enabled device with an emphasis on providing a web based interface for managing a single server.",
+  "note": "<p>Taisun allows you to:</p><ul><li>Deploy and manage web based virtual desktops.</li><li>Deploy Taisun specific stacks of applications</li><li>Browse available images on popular Docker repositories</li><li>Import a Docker project from any git repository and start developing on your choice of web based IDE or full Linux desktop</li><li>Spinup a developer container based on popular frameworks and work from a web based IDE</li><li>Single click remote server access to Taisun and your Docker applications</li></ul>",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/taisun.png",
+  "image": "linuxserver/taisun:latest",
+  "ports": [
+    "3000/tcp"
+  ],
+  "volumes": [
+    {
+      "bind": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock"
+    }
+  ],
+  "categories": [
+    "Dashboard ",
+    "Tools"
+  ],
+  "network": "bridge"
+}

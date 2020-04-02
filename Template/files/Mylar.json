@@ -1,0 +1,39 @@
+{
+  "type": 1,
+  "title": "Mylar",
+  "name": "Mylar",
+  "description": "An automated Comic Book downloader (cbr/cbz) for use with SABnzbd, NZBGet and torrents.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/mylar-icon.png",
+  "image": "linuxserver/mylar:latest",
+  "ports": [
+    "8090/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    },
+    {
+      "container": "/comics"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    }
+  ],
+  "categories": [
+    "Downloaders",
+    "Books"
+  ]
+}

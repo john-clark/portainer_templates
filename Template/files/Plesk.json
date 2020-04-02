@@ -1,0 +1,21 @@
+{
+  "type": 1,
+  "title": "Plesk",
+  "name": "Plesk",
+  "description": "WebOps platform and hosting control panel",
+  "note": "Default credentials: admin / changeme",
+  "categories": [
+    "CMS"
+  ],
+  "platform": "linux",
+  "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/plesk.png",
+  "image": "plesk/plesk:preview",
+  "ports": [
+    "21/tcp",
+    "80/tcp",
+    "443/tcp",
+    "8880/tcp",
+    "8443/tcp",
+    "8447/tcp"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "type": 1,
+  "title": "Projectsend",
+  "name": "Projectsend",
+  "description": "ProjectSend is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself! Secure, private and easy. No more depending on external services or e-mail to send those files!",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/projectsend-logo.png",
+  "image": "linuxserver/projectsend:latest",
+  "ports": [
+    "80/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/data"
+    },
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "MAX_UPLOAD",
+      "description": "To set maximum upload size (in MB), default if unset is 5000.",
+      "label": "MAX_UPLOAD"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Cloud",
+    "File-Share",
+    "Productivity",
+    "Tools",
+    "Other"
+  ]
+}

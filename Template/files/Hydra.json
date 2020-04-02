@@ -1,0 +1,35 @@
+{
+  "type": 1,
+  "title": "Hydra",
+  "name": "Hydra",
+  "description": "NZBHydra is a meta search for NZB indexers and the \"spiritual successor\" to NZBmegasearcH. It provides easy access to a number of raw and newznab based indexers.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/hydra-icon.png",
+  "image": "linuxserver/hydra:latest",
+  "ports": [
+    "5075/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "label": "PGID"
+    }
+  ],
+  "categories": [
+    "Downloaders",
+    "Other",
+    "Tools"
+  ]
+}

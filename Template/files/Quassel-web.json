@@ -1,0 +1,50 @@
+{
+  "type": 1,
+  "title": "Quassel-web",
+  "name": "Quassel-web",
+  "description": "Quassel-web is a web client for Quassel. Note that a Quassel-Core instance is required, we have a container available here.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/quassel-core-banner.png",
+  "image": "linuxserver/quassel-web:latest",
+  "ports": [
+    "64080/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "QUASSEL_CORE",
+      "description": "Specify the URL or IP address of your Quassel Core instance",
+      "label": "QUASSEL_CORE"
+    },
+    {
+      "name": "QUASSEL_PORT",
+      "description": "Specify the port of your Quassel Core instance",
+      "label": "QUASSEL_PORT"
+    },
+    {
+      "name": "URL_BASE",
+      "description": "Specify a url-base in reverse proxy setups ie. /quassel (optional)",
+      "label": "URL_BASE"
+    }
+  ],
+  "categories": [
+    "Tools",
+    "Other"
+  ]
+}

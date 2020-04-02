@@ -1,0 +1,34 @@
+{
+  "type": 1,
+  "title": "Minio",
+  "name": "Minio",
+  "description": "A distributed object storage server built for cloud applications and devops",
+  "categories": [
+    "Storage"
+  ],
+  "platform": "linux",
+  "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/minio.png",
+  "image": "minio/minio:latest",
+  "ports": [
+    "9000/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/data"
+    },
+    {
+      "container": "/root/.minio"
+    }
+  ],
+  "env": [
+    {
+      "name": "MINIO_ACCESS_KEY",
+      "label": "Minio access key"
+    },
+    {
+      "name": "MINIO_SECRET_KEY",
+      "label": "Minio secret key"
+    }
+  ],
+  "command": "server /data"
+}

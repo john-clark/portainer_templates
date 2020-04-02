@@ -1,0 +1,27 @@
+{
+  "type": 1,
+  "title": "Jenkins",
+  "name": "Jenkins",
+  "description": "Open-source continuous integration tool",
+  "categories": [
+    "Continuous-Integration"
+  ],
+  "platform": "linux",
+  "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/jenkins.png",
+  "image": "jenkins/jenkins:lts",
+  "ports": [
+    "8080/tcp",
+    "50000/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/var/jenkins_home"
+    }
+  ],
+  "env": [
+    {
+      "name": "JENKINS_OPTS",
+      "label": "Jenkins options"
+    }
+  ]
+}

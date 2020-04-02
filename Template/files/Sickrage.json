@@ -1,0 +1,40 @@
+{
+  "type": 1,
+  "title": "Sickrage",
+  "name": "Sickrage",
+  "description": "### THIS IMAGE IS DEPRECATED. PLEASE USE SICKCHILL ### - Automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/sickrage-icon.png",
+  "image": "linuxserver/sickrage:latest",
+  "ports": [
+    "8081/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    },
+    {
+      "container": "/tv"
+    }
+  ],
+  "env": [
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    },
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    }
+  ],
+  "categories": [
+    "Downloaders",
+    "Video",
+    "Deprecated"
+  ]
+}

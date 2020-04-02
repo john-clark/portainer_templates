@@ -1,0 +1,36 @@
+{
+  "type": 1,
+  "title": "Plex",
+  "name": "Plex",
+  "description": "Plex organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. has always been a top priority. Straightforward design and bulk actions mean getting things done faster.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/plex-icon.png",
+  "image": "linuxserver/plex:latest",
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    },
+    {
+      "name": "VERSION",
+      "label": "VERSION",
+      "set": "latest"
+    }
+  ],
+  "categories": [
+    "Video",
+    "Music",
+    "Photos"
+  ]
+}

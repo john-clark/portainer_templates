@@ -1,0 +1,45 @@
+{
+  "type": 1,
+  "title": "Hydra2",
+  "name": "Hydra2",
+  "description": "Hydra2 is a meta search application for NZB indexers, the \"spiritual successor\" to NZBmegasearcH, and an evolution of the original application NZBHydra.",
+  "note": "It provides easy access to a number of raw and newznab based indexers. The application NZBHydra 2 is currently in its early stages and is in active development. Be wary that there may be some compatibility issues for those migrating from V1 to V2, so ensure you back up your old configuration before moving over to the new version.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/hydra-icon.png",
+  "image": "linuxserver/hydra2:latest",
+  "ports": [
+    "5076/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Downloaders",
+    "Other",
+    "Tools"
+  ]
+}

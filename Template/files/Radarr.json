@@ -1,0 +1,39 @@
+{
+  "type": 1,
+  "title": "Radarr",
+  "name": "Radarr",
+  "description": "Radarr - A fork of Sonarr to work with movies à la Couchpotato.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/radarr.png",
+  "image": "linuxserver/radarr:latest",
+  "ports": [
+    "7878/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    },
+    {
+      "container": "/movies"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    }
+  ],
+  "categories": [
+    "Downloaders",
+    "Video"
+  ]
+}

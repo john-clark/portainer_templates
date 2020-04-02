@@ -1,0 +1,55 @@
+{
+  "type": 1,
+  "title": "Mariadb",
+  "name": "Mariadb",
+  "description": "An Enhanced drop in replacement for Mysql (linuxserver.io image)",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/mariadb-icon.png",
+  "image": "linuxserver/mariadb:latest",
+  "ports": [
+    "3306/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    },
+    {
+      "name": "MYSQL_DATABASE",
+      "description": "Specify the name of a database to be created on image startup.",
+      "label": "MYSQL_DATABASE"
+    },
+    {
+      "name": "MYSQL_USER",
+      "description": "This user will have superuser access to the database specified by MYSQL_DATABASE.",
+      "label": "MYSQL_USER"
+    },
+    {
+      "name": "MYSQL_ROOT_PASSWORD",
+      "description": "Set this to the password you want to use for your MYSQL_USER (minimum 4 characters).",
+      "label": "MYSQL_ROOT_PASSWORD"
+    }
+  ],
+  "categories": [
+    "Other",
+    "Tools"
+  ]
+}

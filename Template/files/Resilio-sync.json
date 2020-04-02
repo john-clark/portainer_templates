@@ -1,0 +1,42 @@
+{
+  "type": 1,
+  "title": "Resilio-sync",
+  "name": "Resilio-sync",
+  "description": "Resilio Sync (formerly BitTorrent Sync) uses the BitTorrent protocol to sync files and folders between all of your devices. There are both free and paid versions, this container supports both.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/resilio.png",
+  "image": "linuxserver/resilio-sync:latest",
+  "ports": [
+    "8888/tcp",
+    "55555/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/sync"
+    },
+    {
+      "container": "/downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    }
+  ],
+  "categories": [
+    "Backup",
+    "Cloud",
+    "Other",
+    "Tools"
+  ]
+}

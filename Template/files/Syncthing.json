@@ -1,0 +1,55 @@
+{
+  "type": 1,
+  "title": "Syncthing",
+  "name": "Syncthing",
+  "description": "Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/syncthing-icon.png",
+  "image": "linuxserver/syncthing:latest",
+  "ports": [
+    "8384/tcp",
+    "21027/udp",
+    "22000/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/syncfolder1"
+    },
+    {
+      "container": "/syncfolder2"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "UMASK_SET",
+      "description": "Umask setting",
+      "default": "022",
+      "label": "UMASK_SET"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Backup",
+    "Cloud",
+    "Tools"
+  ]
+}

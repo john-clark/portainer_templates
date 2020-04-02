@@ -1,0 +1,50 @@
+{
+  "type": 1,
+  "title": "AdGuardHome",
+  "name": "AdGuardHome",
+  "description": "AdGuard Home is a network-wide software for blocking ads and tracking. After you set it up, it'll cover ALL your home devices, and you don't need any client-side software for that.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/linuxserver/libreelec-addon-repo/master/docker.linuxserver.adguard/icon.png",
+  "image": "adguard/adguardhome:latest",
+  "ports": [
+    "80/tcp",
+    "53/tcp",
+    "53/udp",    
+    "3000/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/data"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    },
+    {
+      "name": "UMASK_SET",
+      "description": "UMASK setting of Couchpotato, optional , default if left unset is 022",
+      "default": "022",
+      "label": "UMASK_SET"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "DNS",
+    "Tools"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "type": 1,
+  "title": "Deluge",
+  "name": "Deluge",
+  "description": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client providing: Full Encryption, WebUI, Plugin System, Much more...",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/deluge-icon.png",
+  "image": "linuxserver/deluge:latest",
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID"
+    },
+    {
+      "name": "UMASK_SET",
+      "description": "For umask setting of deluge, default if left unset is 022 (opcional)",
+      "label": "UMASK_SET"
+    },
+    {
+      "name": "DELUGE_LOGLEVEL",
+      "description": "Set the loglevel output when running Deluge, default is info for deluged and warning for delgued-web (opcional)",
+      "label": "DELUGE_LOGLEVEL"
+    }
+  ],
+  "categories": [
+    "Downloaders"
+  ]
+}

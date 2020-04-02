@@ -1,0 +1,26 @@
+{
+  "type": 1,
+  "title": "Mysql",
+  "name": "Mysql",
+  "description": "The most popular open-source database",
+  "categories": [
+    "Database"
+  ],
+  "platform": "linux",
+  "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mysql.png",
+  "image": "mysql:latest",
+  "ports": [
+    "3306/tcp"
+  ],
+  "volumes": [
+    {
+      "container": "/var/lib/mysql"
+    }
+  ],
+  "env": [
+    {
+      "name": "MYSQL_ROOT_PASSWORD",
+      "label": "Root password"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "type": 3,
+  "title": "Bookstack",
+  "name": "Bookstack",
+  "description": "Bookstack is a free and open source Wiki designed for creating beautiful documentation. Feautring a simple, but powerful WYSIWYG editor it allows for teams to create detailed and useful documentation with ease.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/frdmir/portainer_templates/master/images/bookstack-logo.png",
+  "volumes": [
+    {
+      "container": "/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "label": "PUID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "label": "PGID",
+      "default": "1000"
+    },
+    {
+      "name": "DB_HOST",
+      "label": "DB_HOST",
+      "description": "Specify the database host"
+    },
+    {
+      "name": "DB_USER",
+      "label": "DB_USER",
+      "description": "Specify the database user"
+    },
+    {
+      "name": "DB_PASS",
+      "label": "DB_PASS",
+      "description": "Specify the database password"
+    },
+    {
+      "name": "DB_DATABASE",
+      "label": "DB_DATABASE",
+      "description": "Specify the database to be used"
+    },
+    {
+      "name": "APP_URL",
+      "label": "APP_URL",
+      "description": "Specify the url your application will be accessed on (required for correct operation of reverse proxy) (optional)"
+    },
+    {
+      "name": "MYSQL_DATABASE",
+      "description": "Specify the name of a database to be created on image startup.",
+      "label": "MYSQL_DATABASE"
+    },
+    {
+      "name": "MYSQL_USER",
+      "description": "This user will have superuser access to the database specified by MYSQL_DATABASE.",
+      "label": "MYSQL_USER"
+    },
+    {
+      "name": "MYSQL_ROOT_PASSWORD",
+      "description": "Set the root password of MYSQL",
+      "label": "MYSQL_ROOT_PASSWORD"
+    },
+    {
+      "name": "MYSQL_PASSWORD",
+      "description": "Set this to the password you want to use for your MYSQL_USER (minimum 4 characters).",
+      "label": "MYSQL_PASSWORD"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use e.g. Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Books",
+    "Other"
+  ],
+  "repository": {
+    "stackfile": "stacks/bookstack/docker-compose.yaml",
+    "url": "https://github.com/frdmir/portainer_templates"
+  }
+}

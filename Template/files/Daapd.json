@@ -1,0 +1,39 @@
+{
+  "type": 1,
+  "title": "Daapd",
+  "name": "Daapd",
+  "description": "Daapd (iTunes) media server with support for AirPlay devices, Apple Remote (and compatibles), Chromecast, MPD and internet radio.",
+  "platform": "linux",
+  "logo": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/daapd-icon.png",
+  "image": "linuxserver/daapd:latest",
+  "volumes": [
+    {
+      "container": "/config"
+    },
+    {
+      "container": "/music"
+    }
+  ],
+  "env": [
+    {
+      "name": "PUID",
+      "description": "UserID",
+      "default": "1000",
+      "label": "PUID"
+    },
+    {
+      "name": "PGID",
+      "description": "GroupID",
+      "default": "1000",
+      "label": "PGID"
+    },
+    {
+      "name": "TZ",
+      "description": "Specify a timezone to use EG Europe/London",
+      "label": "TZ"
+    }
+  ],
+  "categories": [
+    "Music"
+  ]
+}
