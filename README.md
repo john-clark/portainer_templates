@@ -12,13 +12,13 @@ This is a rewriten template that should be working with the latest portainer ver
 
 Login to your portainer setup. Go to settings -> enable Use external templates -> add the url:
 
-https://john-clark.github.io/portainer_templates/Template/template-out.json
+[https://john-clark.github.io/portainer_templates/Template/template-out.json](https://john-clark.github.io/portainer_templates/Template/template-out.json)
 
 ## Included Templates
 
 List of the current templates:
 
-https://github.com/john-clark/portainer_templates/blob/master/templates-list.md
+[https://github.com/john-clark/portainer_templates/blob/master/templates-list.md](https://github.com/john-clark/portainer_templates/blob/master/templates-list.md)
 
 ## Contributing
 
